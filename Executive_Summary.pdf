@@ -1,0 +1,117 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 5 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 5 0 R /Resources 3 0 R >>
+endobj
+5 0 obj
+<< /Length 3810 >>
+stream
+BT /F2 16 Tf 50 750 Td (Executive Summary: Expense Classification using NLP) Tj ET
+BT /F2 13 Tf 50 702 Td (1. Data Overview and EDA Findings) Tj ET
+BT /F1 11 Tf 50 683 Td (The dataset contains 268 expense entries from FY23 with columns: Year, Debit, Credit,) Tj ET
+BT /F1 11 Tf 50 669 Td (Net, and Remarks. All Credit values are zero, making Net equal to Debit. The Remarks) Tj ET
+BT /F1 11 Tf 50 655 Td (column contains free-text descriptions of expenses that form the basis for our NLP) Tj ET
+BT /F1 11 Tf 50 641 Td (classification task.) Tj ET
+BT /F1 11 Tf 50 613 Td (Key EDA findings:) Tj ET
+BT /F1 11 Tf 50 599 Td (* Debit amounts range from INR 300 to INR 12.7 million with high variance) Tj ET
+BT /F1 11 Tf 50 585 Td (* Remarks text length varies from 5 to 200+ characters) Tj ET
+BT /F1 11 Tf 50 571 Td (* Domain-specific vocabulary clearly differentiates expense categories) Tj ET
+BT /F1 11 Tf 50 557 Td (* No explicit category labels exist; labels created using domain knowledge rules) Tj ET
+BT /F1 11 Tf 50 543 Td (* Dataset is imbalanced: Equipment \(~56%\), Services \(~27%\), Material \(~17%\)) Tj ET
+BT /F1 11 Tf 50 529 Td (* Services entries have longer text descriptions and higher debit amounts) Tj ET
+BT /F1 11 Tf 50 515 Td (* Text features \(word patterns\) are more discriminative than numeric features alone) Tj ET
+BT /F2 13 Tf 50 481 Td (2. Data Cleaning) Tj ET
+BT /F1 11 Tf 50 462 Td (Steps performed: \(1\) Removed 1 empty row with no remarks text. \(2\) Converted numeric) Tj ET
+BT /F1 11 Tf 50 448 Td (columns to proper types. \(3\) Preprocessed text by removing asset ID numbers, dates,) Tj ET
+BT /F1 11 Tf 50 434 Td (PO numbers, and special characters. \(4\) Standardized text to lowercase for consistent) Tj ET
+BT /F1 11 Tf 50 420 Td (feature extraction. These steps ensure the model focuses on meaningful textual) Tj ET
+BT /F1 11 Tf 50 406 Td (content rather than noise from formatting inconsistencies.) Tj ET
+BT /F2 13 Tf 50 372 Td (3. Classification Approach Comparison) Tj ET
+BT /F1 11 Tf 50 339 Td (Approach 1: TF-IDF + Classical ML \(Chosen\)) Tj ET
+BT /F1 11 Tf 50 325 Td (Converts text to TF-IDF feature vectors capturing word/bigram importance, then trains) Tj ET
+BT /F1 11 Tf 50 311 Td (classical classifiers \(Logistic Regression, Random Forest, XGBoost, LightGBM, Extra) Tj ET
+BT /F1 11 Tf 50 297 Td (Trees\).) Tj ET
+BT /F1 11 Tf 50 283 Td (* Advantages: Fast training, interpretable features, robust with small datasets \(~268) Tj ET
+BT /F1 11 Tf 50 269 Td (samples\), no GPU required, handles domain-specific vocabulary well) Tj ET
+BT /F1 11 Tf 50 255 Td (* Disadvantages: Cannot capture deep semantic relationships, limited to surface-level) Tj ET
+BT /F1 11 Tf 50 241 Td (word patterns, requires manual feature engineering) Tj ET
+BT /F1 11 Tf 50 213 Td (Approach 2: Transformer-based \(BERT/DistilBERT\)) Tj ET
+BT /F1 11 Tf 50 199 Td (Fine-tunes a pre-trained language model on the classification task, leveraging) Tj ET
+BT /F1 11 Tf 50 185 Td (contextual embeddings learned from large corpora.) Tj ET
+BT /F1 11 Tf 50 171 Td (* Advantages: Captures semantic meaning and context, handles synonyms and) Tj ET
+BT /F1 11 Tf 50 157 Td (paraphrases, state-of-the-art NLP performance on large datasets) Tj ET
+BT /F1 11 Tf 50 143 Td (* Disadvantages: Requires GPU infrastructure, prone to severe overfitting with only) Tj ET
+BT /F1 11 Tf 50 129 Td (268 samples, slow training, computationally expensive, difficult to interpret) Tj ET
+BT /F1 11 Tf 50 101 Td (Rationale for Approach 1: With only 268 samples, transformer models would overfit.) Tj ET
+BT /F1 11 Tf 50 87 Td (The expense remarks contain strong keyword signals \(e.g., "consultancy" for Services,) Tj ET
+BT /F1 11 Tf 50 73 Td ("camera" for Equipment, "pipe" for Material\) that TF-IDF captures effectively.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 7 0 R /Resources 3 0 R >>
+endobj
+7 0 obj
+<< /Length 3396 >>
+stream
+BT /F1 11 Tf 50 750 Td (Classical ML with proper hyperparameter tuning provides the best balance of) Tj ET
+BT /F1 11 Tf 50 736 Td (performance and generalization.) Tj ET
+BT /F2 13 Tf 50 702 Td (4. Implementation and Results) Tj ET
+BT /F1 11 Tf 50 683 Td (Five models were trained with Optuna hyperparameter optimization \(30 trials each\) and) Tj ET
+BT /F1 11 Tf 50 669 Td (5-fold stratified cross-validation. Features: TF-IDF vectors \(500 features,) Tj ET
+BT /F1 11 Tf 50 655 Td (unigrams+bigrams\) combined with numeric features \(Debit amount, text length, word) Tj ET
+BT /F1 11 Tf 50 641 Td (count\).) Tj ET
+BT /F1 11 Tf 50 613 Td (Model Performance \(Test Set\):) Tj ET
+BT /F1 11 Tf 50 599 Td (* Logistic Regression: Accuracy=0.9074, Macro F1=0.8644 \(BEST\)) Tj ET
+BT /F1 11 Tf 50 585 Td (* Extra Trees: Accuracy=0.8704, Macro F1=0.7819) Tj ET
+BT /F1 11 Tf 50 571 Td (* Random Forest: Accuracy=0.8333, Macro F1=0.7747) Tj ET
+BT /F1 11 Tf 50 557 Td (* XGBoost: Accuracy=0.8519, Macro F1=0.6899) Tj ET
+BT /F1 11 Tf 50 529 Td (Best Model: Logistic Regression achieved the highest test performance with 90.74%) Tj ET
+BT /F1 11 Tf 50 515 Td (accuracy and 0.8644 Macro F1-Score. Only 5 out of 54 test samples were misclassified.) Tj ET
+BT /F1 11 Tf 50 487 Td (Per-class performance of best model:) Tj ET
+BT /F1 11 Tf 50 473 Td (* Equipment: Precision=0.90, Recall=0.97, F1=0.94 \(support=37\)) Tj ET
+BT /F1 11 Tf 50 459 Td (* Material: Precision=0.83, Recall=0.71, F1=0.77 \(support=7\)) Tj ET
+BT /F1 11 Tf 50 445 Td (* Services: Precision=1.00, Recall=0.80, F1=0.89 \(support=10\)) Tj ET
+BT /F2 13 Tf 50 411 Td (5. Evaluation Metrics Justification) Tj ET
+BT /F1 11 Tf 50 392 Td (Primary metrics chosen:) Tj ET
+BT /F1 11 Tf 50 378 Td (* Macro F1-Score \(0.8644\): Treats all classes equally, ensuring good performance on) Tj ET
+BT /F1 11 Tf 50 364 Td (the minority Material class. Critical because misclassifying expense types has real) Tj ET
+BT /F1 11 Tf 50 350 Td (business impact in procurement tracking and financial reporting.) Tj ET
+BT /F1 11 Tf 50 336 Td (* Weighted F1-Score \(0.9050\): Weights by class proportion, providing realistic) Tj ET
+BT /F1 11 Tf 50 322 Td (overall performance assessment that accounts for the natural class distribution in) Tj ET
+BT /F1 11 Tf 50 308 Td (production data.) Tj ET
+BT /F1 11 Tf 50 280 Td (The most important discriminative features are domain-specific terms: "services",) Tj ET
+BT /F1 11 Tf 50 266 Td ("commissioning", "consultancy" for Services; "camera", "dispenser", "chair" for) Tj ET
+BT /F1 11 Tf 50 252 Td (Equipment; "pipe", "cable", "insulation" for Material. This validates that TF-IDF) Tj ET
+BT /F1 11 Tf 50 238 Td (effectively captures the vocabulary patterns needed for classification.) Tj ET
+BT /F2 13 Tf 50 204 Td (6. Future Improvements) Tj ET
+BT /F1 11 Tf 50 185 Td (* Collect more labeled data especially for the Material class \(minority\)) Tj ET
+BT /F1 11 Tf 50 171 Td (* Implement active learning for iterative label refinement) Tj ET
+BT /F1 11 Tf 50 157 Td (* Ensemble rule-based and ML approaches for production robustness) Tj ET
+BT /F1 11 Tf 50 143 Td (* Add named entity recognition for vendor/brand extraction) Tj ET
+BT /F1 11 Tf 50 129 Td (* Consider hierarchical classification for sub-categories within each type) Tj ET
+BT /F1 11 Tf 50 115 Td (* Deploy as API service with confidence thresholds for manual review) Tj ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000277 00000 n 
+0000000381 00000 n 
+0000004243 00000 n 
+0000004347 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+7795
+%%EOF
