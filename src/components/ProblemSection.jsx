@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ProblemCard from './ProblemCard';
 import { ProgressBar, useProgress } from './ProgressTracker';
 import SearchBar from './SearchBar';
+import TimeTargets from './TimeTargets';
 import { getAnimation } from '../data/allAnimations';
 
 export default function ProblemSection({ problems, topic, count }) {
@@ -17,6 +18,7 @@ export default function ProblemSection({ problems, topic, count }) {
   return (
     <div>
       <ProgressBar solved={topicSolved} total={problems.length} label="Progress" />
+      <TimeTargets />
       <SearchBar />
       <div className="ps-filters">
         <button className={`ps-filter ${filter==='all'?'active':''}`} onClick={()=>setFilter('all')}>All ({problems.length})</button>

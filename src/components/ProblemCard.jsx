@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Highlight, themes } from 'prism-react-renderer';
 import ProblemVisualizer from './ProblemVisualizer';
 import { problemSolutions } from '../data/problemSolutions';
+import { problemMeta } from '../data/problemMeta';
 import '../components/ProblemVisualizer.css';
 
 export default function ProblemCard({ problem, animation, isSolved, onToggleSolved }) {
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('solutions');
   const solutions = problemSolutions[problem.name];
+  const meta = problemMeta[problem.name];
 
   const getLeetCodeUrl = (name) => {
     const slug = name.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
@@ -46,7 +48,9 @@ export default function ProblemCard({ problem, animation, isSolved, onToggleSolv
               {/* Tab bar */}
               <div className="pc-tabs">
                 {animation && <button className={`pc-tab ${activeTab === 'animation' ? 'active' : ''}`} onClick={() => setActiveTab('animation')}>🎬 Animation</button>}
-                {solutions && <button className={`pc-tab ${activeTab === 'solutions' ? 'active' : ''}`} onClick={() => setActiveTab('solutions')}>💻 Solutions (3)</button>}
+                {solutions && <button className={`pc-tab ${activeTab === 'solutions' ? 'active' : ''}`} onClick={() => setActiveTab('solutions')}>💻 Solutions</button>}
+                {meta && <button className={`pc-tab ${activeTab === 'thought' ? 'active' : ''}`} onClick={() => setActiveTab('thought')}>🧠 Thought Process</button>}
+                {meta && <button className={`pc-tab ${activeTab === 'dryrun' ? 'active' : ''}`} onClick={() => setActiveTab('dryrun')}>📋 Dry Run</button>}
               </div>
 
               {/* Animation tab */}
@@ -99,6 +103,63 @@ export default function ProblemCard({ problem, animation, isSolved, onToggleSolv
               {activeTab === 'animation' && !animation && solutions && (
                 <div className="pc-section">
                   <p style={{ color: 'var(--text-muted)', textAlign: 'center', padding: '1rem' }}>Switch to Solutions tab to see 3 approaches for this problem.</p>
+                </div>
+              )}
+
+              {/* Thought Process tab */}
+              {activeTab === 'thought' && meta && (
+                <div className="pc-meta-section">
+                  <div className="pc-meta-block">
+                    <h5 className="pc-meta-title">🧠 How to Arrive at the Solution</h5>
+                    <ol className="pc-thought-list">
+                      {meta.thoughtProcess.map((step, i) => <li key={i}>{step}</li>)}
+                    </ol>
+                  </div>
+                  <div className="pc-meta-row">
+                    <div className="pc-meta-block">
+                      <h5 className="pc-meta-title">⚠️ Edge Cases to Test</h5>
+                      <ul className="pc-edge-list">
+                        {meta.edgeCases.map((e, i) => <li key={i}><code>{e}</code></li>)}
+                      </ul>
+                    </div>
+                    <div className="pc-meta-block">
+                      <h5 className="pc-meta-title">❓ Follow-Up Questions</h5>
+                      <ul className="pc-edge-list">
+                        {meta.followUps.map((f, i) => <li key={i}>{f}</li>)}
+                      </ul>
+                    </div>
+                  </div>
+                  {meta.related && (
+                    <div className="pc-meta-block">
+                      <h5 className="pc-meta-title">🔗 Related Problems</h5>
+                      <div className="pc-related">
+                        {meta.related.map((r, i) => (
+                          <a key={i} href={getLeetCodeUrl(r)} target="_blank" rel="noopener noreferrer" className="pc-related-link">{r}</a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {meta.timeTarget && (
+                    <div className="pc-time-target">⏱ Target: {meta.timeTarget}</div>
+                  )}
+                </div>
+              )}
+
+              {/* Dry Run tab */}
+              {activeTab === 'dryrun' && meta && meta.dryRun && (
+                <div className="pc-meta-section">
+                  <div className="pc-meta-block">
+                    <h5 className="pc-meta-title">📋 Step-by-Step Dry Run</h5>
+                    <div className="pc-dryrun-input"><strong>Input:</strong> <code>{meta.dryRun.input}</code></div>
+                    <div className="pc-dryrun-steps">
+                      {meta.dryRun.steps.map((step, i) => (
+                        <div key={i} className="pc-dryrun-step">
+                          <span className="pc-dryrun-num">{i + 1}</span>
+                          <span className="pc-dryrun-text">{step}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -258,6 +319,118 @@ export default function ProblemCard({ problem, animation, isSolved, onToggleSolv
         }
         .pc-section {
           padding-top: 0.3rem;
+        }
+        .pc-meta-section {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding-top: 0.5rem;
+        }
+        .pc-meta-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        .pc-meta-block {
+          background: var(--bg-primary);
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius);
+          padding: 0.8rem 1rem;
+        }
+        .pc-meta-title {
+          font-size: 0.82rem;
+          color: var(--coral);
+          margin-bottom: 0.5rem;
+          font-weight: 700;
+        }
+        .pc-thought-list {
+          padding-left: 1.2rem;
+          color: var(--text-secondary);
+          font-size: 0.83rem;
+          line-height: 1.9;
+        }
+        .pc-thought-list li { margin-bottom: 0.2rem; }
+        .pc-edge-list {
+          padding-left: 1rem;
+          color: var(--text-secondary);
+          font-size: 0.82rem;
+          line-height: 1.8;
+          list-style: none;
+        }
+        .pc-edge-list li::before { content: '• '; color: var(--slate); }
+        .pc-edge-list code {
+          font-size: 0.78rem;
+        }
+        .pc-related {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.4rem;
+        }
+        .pc-related-link {
+          font-size: 0.78rem;
+          background: var(--bg-tertiary);
+          padding: 0.25rem 0.6rem;
+          border-radius: 12px;
+          border: 1px solid var(--border-color);
+          color: var(--ice);
+          text-decoration: none;
+          transition: all 0.2s;
+        }
+        .pc-related-link:hover { border-color: var(--coral); color: var(--coral); text-decoration: none; }
+        .pc-time-target {
+          font-family: var(--font-mono);
+          font-size: 0.78rem;
+          color: var(--mint);
+          background: rgba(184,242,230,0.06);
+          padding: 0.4rem 0.8rem;
+          border-radius: 6px;
+          border: 1px solid rgba(184,242,230,0.15);
+          text-align: center;
+        }
+        .pc-dryrun-input {
+          font-family: var(--font-mono);
+          font-size: 0.82rem;
+          color: var(--text-secondary);
+          margin-bottom: 0.8rem;
+          padding: 0.4rem 0.6rem;
+          background: var(--bg-tertiary);
+          border-radius: 4px;
+        }
+        .pc-dryrun-steps {
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+        .pc-dryrun-step {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.6rem;
+          font-size: 0.82rem;
+          color: var(--text-secondary);
+          padding: 0.3rem 0;
+          border-bottom: 1px solid var(--border-color);
+        }
+        .pc-dryrun-num {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          background: var(--coral);
+          color: white;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          font-weight: 700;
+        }
+        .pc-dryrun-text {
+          font-family: var(--font-mono);
+          font-size: 0.78rem;
+          line-height: 1.5;
+        }
+        @media (max-width: 768px) {
+          .pc-meta-row { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>

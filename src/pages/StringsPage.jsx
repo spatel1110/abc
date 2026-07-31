@@ -161,20 +161,20 @@ export default function StringsPage() {
       <section className="section">
         <div className="section-title"><h2>📋 Cheat Sheet</h2></div>
         <div className="cheat-grid">
-          <div className="cheat-item"><code>s.split(sep)</code><p>Split string into list by separator</p></div>
-          <div className="cheat-item"><code>sep.join(list)</code><p>Join list items into one string with separator</p></div>
-          <div className="cheat-item"><code>s.strip()</code><p>Remove leading/trailing whitespace</p></div>
-          <div className="cheat-item"><code>s.lower() / s.upper()</code><p>Convert to lowercase / uppercase</p></div>
-          <div className="cheat-item"><code>s.replace(old, new)</code><p>Replace all occurrences of old with new</p></div>
-          <div className="cheat-item"><code>s.find(sub)</code><p>Find index of substring (-1 if not found)</p></div>
-          <div className="cheat-item"><code>s.startswith(prefix)</code><p>Check if string starts with prefix</p></div>
-          <div className="cheat-item"><code>s.isalpha() / s.isdigit()</code><p>Check if all chars are letters / digits</p></div>
-          <div className="cheat-item"><code>s.isalnum()</code><p>Check if all characters are alphanumeric</p></div>
-          <div className="cheat-item"><code>s[::-1]</code><p>Reverse the string</p></div>
-          <div className="cheat-item"><code>ord(c) / chr(n)</code><p>Character ↔ ASCII number conversion</p></div>
-          <div className="cheat-item"><code>f"text &#123;var&#125;"</code><p>F-string: embed variables in strings</p></div>
-          <div className="cheat-item"><code>s.count(sub)</code><p>Count occurrences of substring</p></div>
-          <div className="cheat-item"><code>s.zfill(width)</code><p>Pad with zeros on the left</p></div>
+          <div className="cheat-item"><code>s.split(sep)</code><p>Split into list → <span className="cheat-ex">"a,b,c".split(",") → ['a','b','c']</span></p></div>
+          <div className="cheat-item"><code>sep.join(list)</code><p>Join items → <span className="cheat-ex">"-".join(['a','b']) → 'a-b'</span></p></div>
+          <div className="cheat-item"><code>s.strip()</code><p>Remove whitespace → <span className="cheat-ex">"  hi  ".strip() → 'hi'</span></p></div>
+          <div className="cheat-item"><code>s.lower() / s.upper()</code><p>Change case → <span className="cheat-ex">"Hello".lower() → 'hello'</span></p></div>
+          <div className="cheat-item"><code>s.replace(old, new)</code><p>Replace all → <span className="cheat-ex">"aab".replace("a","x") → 'xxb'</span></p></div>
+          <div className="cheat-item"><code>s.find(sub)</code><p>Find index (-1 if missing) → <span className="cheat-ex">"hello".find("ll") → 2</span></p></div>
+          <div className="cheat-item"><code>s.startswith(prefix)</code><p>Check prefix → <span className="cheat-ex">"hello".startswith("he") → True</span></p></div>
+          <div className="cheat-item"><code>s.isalpha() / s.isdigit()</code><p>Check type → <span className="cheat-ex">"abc".isalpha()→True, "123".isdigit()→True</span></p></div>
+          <div className="cheat-item"><code>s.isalnum()</code><p>Letters or digits → <span className="cheat-ex">"a1".isalnum()→True, "a!".isalnum()→False</span></p></div>
+          <div className="cheat-item"><code>s[::-1]</code><p>Reverse string → <span className="cheat-ex">"hello"[::-1] → 'olleh'</span></p></div>
+          <div className="cheat-item"><code>ord(c) / chr(n)</code><p>Char↔ASCII → <span className="cheat-ex">ord('a')→97, chr(97)→'a'</span></p></div>
+          <div className="cheat-item"><code>f"text &#123;var&#125;"</code><p>F-string → <span className="cheat-ex">x=5; f"val={'{'}x{'}'}" → 'val=5'</span></p></div>
+          <div className="cheat-item"><code>s.count(sub)</code><p>Count occurrences → <span className="cheat-ex">"aabaa".count("a") → 4</span></p></div>
+          <div className="cheat-item"><code>s.zfill(width)</code><p>Pad zeros left → <span className="cheat-ex">"42".zfill(5) → '00042'</span></p></div>
         </div>
       </section>
 
