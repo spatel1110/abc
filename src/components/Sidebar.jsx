@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const topics = [
+  { path: '/patterns', name: 'Patterns Guide', icon: '🧠', count: 12, color: '#FFA69E' },
   { path: '/lists', name: 'Lists', icon: '⟦⟧', count: 55, color: '#AED9E0' },
   { path: '/strings', name: 'Strings', icon: '❝❞', count: 47, color: '#B8F2E6' },
   { path: '/dictionaries', name: 'Dictionaries', icon: '⟨⟩', count: 28, color: '#FAF3DD' },
