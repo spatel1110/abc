@@ -9,7 +9,7 @@ import StacksQueuesPage from './pages/StacksQueuesPage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/abc">
       <div className="app-layout">
         <Sidebar />
         <main className="main-content">
