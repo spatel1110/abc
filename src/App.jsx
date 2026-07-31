@@ -7,6 +7,8 @@ import DictionariesPage from './pages/DictionariesPage';
 import SortingSearchingPage from './pages/SortingSearchingPage';
 import StacksQueuesPage from './pages/StacksQueuesPage';
 import PatternsPage from './pages/PatternsPage';
+import MemoryPage from './pages/MemoryPage';
+import OOPPage from './pages/OOPPage';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="/sorting-searching" element={<SortingSearchingPage />} />
             <Route path="/stacks-queues" element={<StacksQueuesPage />} />
             <Route path="/patterns" element={<PatternsPage />} />
+            <Route path="/memory" element={<MemoryPage />} />
+            <Route path="/oop" element={<OOPPage />} />
           </Routes>
         </main>
       </div>

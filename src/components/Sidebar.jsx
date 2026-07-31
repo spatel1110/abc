@@ -8,6 +8,8 @@ const topics = [
   { path: '/dictionaries', name: 'Dictionaries', icon: '⟨⟩', count: 28, color: '#FAF3DD' },
   { path: '/sorting-searching', name: 'Sorting & Searching', icon: '⇅⇄', count: 29, color: '#FFA69E' },
   { path: '/stacks-queues', name: 'Stacks & Queues', icon: '⊏⊐', count: 29, color: '#5E6472' },
+  { path: '/memory', name: 'Memory Optimization', icon: '⚡', count: null, color: '#B8F2E6' },
+  { path: '/oop', name: 'OOP in Python', icon: '🏗️', count: null, color: '#AED9E0' },
 ];
 
 export default function Sidebar() {
@@ -37,7 +39,7 @@ export default function Sidebar() {
           >
             <span className="nav-icon" style={{ color: topic.color }}>{topic.icon}</span>
             <span className="nav-name">{topic.name}</span>
-            <span className="nav-count">{topic.count}</span>
+            {topic.count && <span className="nav-count">{topic.count}</span>}
           </NavLink>
         ))}
       </nav>
