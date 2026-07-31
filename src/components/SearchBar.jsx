@@ -87,8 +87,8 @@ export default function SearchBar() {
           transition: all 0.3s;
         }
         .search-input-wrap.focused {
-          border-color: var(--accent-purple);
-          box-shadow: 0 0 20px rgba(124,58,237,0.15);
+          border-color: var(--coral);
+          box-shadow: 0 0 20px rgba(255,166,158,0.12);
         }
         .search-icon { font-size: 0.9rem; }
         .search-input {
@@ -131,7 +131,7 @@ export default function SearchBar() {
           border-bottom: 1px solid var(--border-color);
         }
         .search-result-item:last-child { border-bottom: none; }
-        .search-result-item:hover { background: rgba(124,58,237,0.06); }
+        .search-result-item:hover { background: rgba(255,166,158,0.04); }
         .sr-left {
           display: flex;
           flex-direction: column;

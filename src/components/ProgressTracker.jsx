@@ -66,7 +66,7 @@ export function ProgressBar({ solved, total, label }) {
         .progress-text {
           font-family: var(--font-mono);
           font-size: 0.75rem;
-          color: var(--accent-purple);
+          color: var(--coral);
           white-space: nowrap;
           min-width: 80px;
         }

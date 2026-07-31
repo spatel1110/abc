@@ -2,11 +2,11 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const topics = [
-  { path: '/lists', name: 'Lists', icon: '⟦⟧', count: 55, color: '#60a5fa' },
-  { path: '/strings', name: 'Strings', icon: '❝❞', count: 47, color: '#34d399' },
-  { path: '/dictionaries', name: 'Dictionaries', icon: '⟨⟩', count: 28, color: '#22d3ee' },
-  { path: '/sorting-searching', name: 'Sorting & Searching', icon: '⇅⇄', count: 29, color: '#fbbf24' },
-  { path: '/stacks-queues', name: 'Stacks & Queues', icon: '⊏⊐', count: 29, color: '#a78bfa' },
+  { path: '/lists', name: 'Lists', icon: '⟦⟧', count: 55, color: '#AED9E0' },
+  { path: '/strings', name: 'Strings', icon: '❝❞', count: 47, color: '#B8F2E6' },
+  { path: '/dictionaries', name: 'Dictionaries', icon: '⟨⟩', count: 28, color: '#FAF3DD' },
+  { path: '/sorting-searching', name: 'Sorting & Searching', icon: '⇅⇄', count: 29, color: '#FFA69E' },
+  { path: '/stacks-queues', name: 'Stacks & Queues', icon: '⊏⊐', count: 29, color: '#5E6472' },
 ];
 
 export default function Sidebar() {
@@ -86,7 +86,7 @@ export default function Sidebar() {
           left: -50%;
           width: 200%;
           height: 200%;
-          background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 60%);
+          background: radial-gradient(circle, rgba(255,166,158,0.06) 0%, transparent 60%);
           animation: float 6s ease-in-out infinite;
         }
 
@@ -146,17 +146,17 @@ export default function Sidebar() {
         }
 
         .nav-item:hover {
-          background: rgba(124,58,237,0.06);
+          background: rgba(255,166,158,0.05);
           color: var(--text-primary);
           text-decoration: none;
-          border-color: rgba(124,58,237,0.15);
+          border-color: rgba(255,166,158,0.15);
         }
 
         .nav-item-active {
-          background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(6,182,212,0.06) 100%);
-          color: var(--accent-purple);
-          border-color: rgba(124,58,237,0.3);
-          box-shadow: 0 0 15px rgba(124,58,237,0.1);
+          background: linear-gradient(135deg, rgba(255,166,158,0.1) 0%, rgba(184,242,230,0.05) 100%);
+          color: var(--coral);
+          border-color: rgba(255,166,158,0.3);
+          box-shadow: 0 0 15px rgba(255,166,158,0.08);
         }
 
         .nav-icon {
@@ -181,9 +181,9 @@ export default function Sidebar() {
         }
 
         .nav-item-active .nav-count {
-          background: rgba(124,58,237,0.15);
-          color: var(--accent-purple);
-          border-color: rgba(124,58,237,0.3);
+          background: rgba(255,166,158,0.12);
+          color: var(--coral);
+          border-color: rgba(255,166,158,0.25);
         }
 
         .sidebar-footer {

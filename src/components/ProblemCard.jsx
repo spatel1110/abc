@@ -137,7 +137,7 @@ export default function ProblemCard({ problem, animation, isSolved, onToggleSolv
           transition: all 0.2s;
         }
         .pc-card:hover {
-          border-color: rgba(124, 58, 237, 0.3);
+          border-color: rgba(255, 166, 158, 0.3);
         }
         .pc-header {
           display: flex;
@@ -194,11 +194,11 @@ export default function ProblemCard({ problem, animation, isSolved, onToggleSolv
           font-weight: 600;
           transition: all 0.2s;
         }
-        .pc-tab:hover { border-color: var(--accent-purple); color: var(--text-primary); }
+        .pc-tab:hover { border-color: var(--coral); color: var(--text-primary); }
         .pc-tab.active {
-          background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(6,182,212,0.08));
-          border-color: var(--accent-purple);
-          color: var(--accent-purple);
+          background: linear-gradient(135deg, rgba(255,166,158,0.12), rgba(184,242,230,0.06));
+          border-color: var(--coral);
+          color: var(--coral);
         }
         .pc-explanation {
           padding: 0.5rem 0;
@@ -207,12 +207,12 @@ export default function ProblemCard({ problem, animation, isSolved, onToggleSolv
           display: inline-block;
           font-family: var(--font-mono);
           font-size: 0.72rem;
-          color: var(--accent-purple);
-          background: rgba(167, 139, 250, 0.1);
+          color: var(--coral);
+          background: rgba(255, 166, 158, 0.08);
           padding: 0.2rem 0.6rem;
           border-radius: 4px;
           margin-bottom: 0.3rem;
-          border: 1px solid rgba(167, 139, 250, 0.2);
+          border: 1px solid rgba(255, 166, 158, 0.2);
         }
         .pc-explanation p {
           font-size: 0.85rem;

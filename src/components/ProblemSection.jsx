@@ -57,8 +57,8 @@ export default function ProblemSection({ problems, topic, count }) {
           font-weight: 500;
           transition: all 0.2s;
         }
-        .ps-filter:hover { border-color: var(--accent-purple); color: var(--text-primary); }
-        .ps-filter.active { background: rgba(124,58,237,0.12); border-color: var(--accent-purple); color: var(--accent-purple); }
+        .ps-filter:hover { border-color: var(--coral); color: var(--text-primary); }
+        .ps-filter.active { background: rgba(255,166,158,0.1); border-color: var(--coral); color: var(--coral); }
         .ps-list {
           display: flex;
           flex-direction: column;

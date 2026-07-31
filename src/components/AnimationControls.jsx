@@ -155,16 +155,16 @@ export default function AnimationControls({
           height: 44px;
           border-radius: 50%;
           background: var(--gradient-primary);
-          border-color: var(--accent-purple);
+          border-color: var(--coral);
           color: white;
           font-size: 1rem;
-          box-shadow: 0 0 20px rgba(124,58,237,0.3);
+          box-shadow: 0 0 20px rgba(255,166,158,0.25);
         }
 
         .ctrl-btn-play:hover {
-          box-shadow: 0 0 30px rgba(124,58,237,0.5);
+          box-shadow: 0 0 30px rgba(255,166,158,0.4);
           color: white !important;
-          border-color: var(--accent-purple) !important;
+          border-color: var(--coral) !important;
         }
 
         .ctrl-btn-submit {
@@ -217,7 +217,7 @@ export default function AnimationControls({
         }
 
         .autoplay-toggle input {
-          accent-color: var(--accent-purple);
+          accent-color: var(--coral);
         }
 
         .custom-input-row {
