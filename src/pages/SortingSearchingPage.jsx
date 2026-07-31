@@ -4,7 +4,9 @@ import AnimationControls from '../components/AnimationControls';
 import SortingVisualizer from '../visualizers/SortingVisualizer';
 import CodeBlock from '../components/CodeBlock';
 import ProblemSection from '../components/ProblemSection';
+import CheatSheet from '../components/CheatSheet';
 import { sortingProblems } from '../data/sortingProblems';
+import { sortingCheatSheet } from '../data/cheatSheets';
 
 function SortingSearchingVisualizer() {
   const [originalArray, setOriginalArray] = useState([64, 34, 25, 12, 22, 11, 90]);
@@ -236,20 +238,7 @@ export default function SortingSearchingPage() {
       {/* CHEAT SHEET */}
       <section className="section">
         <div className="section-title"><h2>📋 Cheat Sheet</h2></div>
-        <div className="cheat-grid">
-          <div className="cheat-item"><code>arr.sort()</code><p>Sort list in-place (ascending). Uses Timsort — O(n log n)</p></div>
-          <div className="cheat-item"><code>sorted(arr)</code><p>Return new sorted list (original unchanged)</p></div>
-          <div className="cheat-item"><code>arr.sort(key=lambda x: x[1])</code><p>Sort by custom key (e.g., second element of tuples)</p></div>
-          <div className="cheat-item"><code>arr.sort(reverse=True)</code><p>Sort in descending order</p></div>
-          <div className="cheat-item"><code>bisect.bisect_left(arr, x)</code><p>Find insertion point for x in sorted arr (left side)</p></div>
-          <div className="cheat-item"><code>bisect.insort(arr, x)</code><p>Insert x into sorted arr maintaining order</p></div>
-          <div className="cheat-item"><code>heapq.heapify(arr)</code><p>Turn list into a min-heap in O(n)</p></div>
-          <div className="cheat-item"><code>heapq.heappush(h, x)</code><p>Push x onto heap — O(log n)</p></div>
-          <div className="cheat-item"><code>heapq.heappop(h)</code><p>Pop smallest item from heap — O(log n)</p></div>
-          <div className="cheat-item"><code>heapq.nlargest(k, arr)</code><p>Get k largest elements — O(n log k)</p></div>
-          <div className="cheat-item"><code>min(arr) / max(arr)</code><p>Find min/max — O(n) linear scan</p></div>
-          <div className="cheat-item"><code>sorted(arr, key=len)</code><p>Sort strings by length</p></div>
-        </div>
+        <CheatSheet items={sortingCheatSheet} />
       </section>
 
       {/* CODE EXAMPLES */}

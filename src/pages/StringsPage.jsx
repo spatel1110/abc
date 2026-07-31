@@ -4,7 +4,9 @@ import AnimationControls from '../components/AnimationControls';
 import ArrayVisualizer from '../visualizers/ArrayVisualizer';
 import CodeBlock from '../components/CodeBlock';
 import ProblemSection from '../components/ProblemSection';
+import CheatSheet from '../components/CheatSheet';
 import { stringsProblems } from '../data/stringsProblems';
+import { stringsCheatSheet } from '../data/cheatSheets';
 
 function StringsVisualizer() {
   const [str, setStr] = useState('abcabcbb');
@@ -160,22 +162,7 @@ export default function StringsPage() {
       {/* CHEAT SHEET */}
       <section className="section">
         <div className="section-title"><h2>📋 Cheat Sheet</h2></div>
-        <div className="cheat-grid">
-          <div className="cheat-item"><code>s.split(sep)</code><p>Split into list → <span className="cheat-ex">"a,b,c".split(",") → ['a','b','c']</span></p></div>
-          <div className="cheat-item"><code>sep.join(list)</code><p>Join items → <span className="cheat-ex">"-".join(['a','b']) → 'a-b'</span></p></div>
-          <div className="cheat-item"><code>s.strip()</code><p>Remove whitespace → <span className="cheat-ex">"  hi  ".strip() → 'hi'</span></p></div>
-          <div className="cheat-item"><code>s.lower() / s.upper()</code><p>Change case → <span className="cheat-ex">"Hello".lower() → 'hello'</span></p></div>
-          <div className="cheat-item"><code>s.replace(old, new)</code><p>Replace all → <span className="cheat-ex">"aab".replace("a","x") → 'xxb'</span></p></div>
-          <div className="cheat-item"><code>s.find(sub)</code><p>Find index (-1 if missing) → <span className="cheat-ex">"hello".find("ll") → 2</span></p></div>
-          <div className="cheat-item"><code>s.startswith(prefix)</code><p>Check prefix → <span className="cheat-ex">"hello".startswith("he") → True</span></p></div>
-          <div className="cheat-item"><code>s.isalpha() / s.isdigit()</code><p>Check type → <span className="cheat-ex">"abc".isalpha()→True, "123".isdigit()→True</span></p></div>
-          <div className="cheat-item"><code>s.isalnum()</code><p>Letters or digits → <span className="cheat-ex">"a1".isalnum()→True, "a!".isalnum()→False</span></p></div>
-          <div className="cheat-item"><code>s[::-1]</code><p>Reverse string → <span className="cheat-ex">"hello"[::-1] → 'olleh'</span></p></div>
-          <div className="cheat-item"><code>ord(c) / chr(n)</code><p>Char↔ASCII → <span className="cheat-ex">ord('a')→97, chr(97)→'a'</span></p></div>
-          <div className="cheat-item"><code>f"text &#123;var&#125;"</code><p>F-string → <span className="cheat-ex">x=5; f"val={'{'}x{'}'}" → 'val=5'</span></p></div>
-          <div className="cheat-item"><code>s.count(sub)</code><p>Count occurrences → <span className="cheat-ex">"aabaa".count("a") → 4</span></p></div>
-          <div className="cheat-item"><code>s.zfill(width)</code><p>Pad zeros left → <span className="cheat-ex">"42".zfill(5) → '00042'</span></p></div>
-        </div>
+        <CheatSheet items={stringsCheatSheet} />
       </section>
 
       {/* CODE EXAMPLES */}

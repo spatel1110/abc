@@ -1,0 +1,76 @@
+export const listsCheatSheet = [
+  { method: "arr.append(x)", desc: "Add element to end — O(1)", example: `nums = [1, 2, 3]\nnums.append(4)\n# nums = [1, 2, 3, 4]` },
+  { method: "arr.pop()", desc: "Remove & return last element — O(1)", example: `nums = [1, 2, 3]\nlast = nums.pop()  # last = 3\n# nums = [1, 2]` },
+  { method: "arr.pop(i)", desc: "Remove & return at index — O(n)", example: `nums = [10, 20, 30]\nval = nums.pop(1)  # val = 20\n# nums = [10, 30]` },
+  { method: "arr.insert(i, x)", desc: "Insert x at position i — O(n)", example: `nums = [1, 3, 4]\nnums.insert(1, 2)\n# nums = [1, 2, 3, 4]` },
+  { method: "arr.sort() vs sorted(arr)", desc: "In-place sort vs new sorted list", example: `nums = [3, 1, 2]\nnums.sort()          # nums = [1, 2, 3], returns None\nnew = sorted([3,1,2]) # new = [1, 2, 3], original unchanged` },
+  { method: "arr.sort(key=...)", desc: "Sort by custom key function", example: `intervals = [[3,4], [1,2], [2,5]]\nintervals.sort(key=lambda x: x[0])\n# [[1,2], [2,5], [3,4]] — sorted by start time` },
+  { method: "arr[start:end:step]", desc: "Slice — get subarray (end exclusive)", example: `nums = [10, 20, 30, 40, 50]\nnums[1:4]   # [20, 30, 40]\nnums[::2]   # [10, 30, 50] — every 2nd\nnums[::-1]  # [50, 40, 30, 20, 10] — reverse` },
+  { method: "enumerate(arr)", desc: "Loop with index + value", example: `fruits = ['apple', 'banana', 'cherry']\nfor i, fruit in enumerate(fruits):\n    print(i, fruit)\n# 0 apple, 1 banana, 2 cherry` },
+  { method: "zip(a, b)", desc: "Pair elements from two lists", example: `names = ['Alice', 'Bob']\nscores = [95, 87]\nfor name, score in zip(names, scores):\n    print(f"{name}: {score}")\n# Alice: 95, Bob: 87` },
+  { method: "list comprehension", desc: "Create/filter lists in one line", example: `# Filter: keep only positives\nnums = [-1, 2, -3, 4, 5]\npos = [x for x in nums if x > 0]  # [2, 4, 5]\n\n# Transform: square each\nsq = [x**2 for x in [1,2,3]]  # [1, 4, 9]` },
+  { method: "arr.extend(other)", desc: "Add all items from another list", example: `a = [1, 2]\nb = [3, 4]\na.extend(b)\n# a = [1, 2, 3, 4]  (b unchanged)` },
+  { method: "arr.remove(x)", desc: "Remove first occurrence of x — O(n)", example: `nums = [1, 2, 3, 2, 1]\nnums.remove(2)\n# nums = [1, 3, 2, 1]  (only first 2 removed)` },
+  { method: "arr.index(x)", desc: "Find index of first x — O(n)", example: `nums = [10, 20, 30, 20]\nnums.index(20)  # 1 (first occurrence)\n# Raises ValueError if not found!` },
+  { method: "arr.count(x)", desc: "Count occurrences of x — O(n)", example: `nums = [1, 2, 2, 3, 2]\nnums.count(2)  # 3` },
+  { method: "min() / max() / sum()", desc: "Aggregate functions — O(n)", example: `nums = [3, 1, 4, 1, 5]\nmin(nums)  # 1\nmax(nums)  # 5\nsum(nums)  # 14` },
+  { method: "any() / all()", desc: "Check conditions across list", example: `nums = [0, 1, 2, 3]\nany(x > 2 for x in nums)  # True (3 > 2)\nall(x > 0 for x in nums)  # False (0 is not > 0)` },
+];
+
+export const stringsCheatSheet = [
+  { method: "s.split(sep)", desc: "Split into list by separator", example: `s = "hello world python"\nwords = s.split()       # ['hello', 'world', 'python']\ncsv = "a,b,c".split(",") # ['a', 'b', 'c']` },
+  { method: "sep.join(list)", desc: "Join list items into string", example: `words = ['hello', 'world']\n" ".join(words)   # 'hello world'\n",".join(['a','b','c'])  # 'a,b,c'` },
+  { method: "s.strip() / lstrip() / rstrip()", desc: "Remove whitespace (or specific chars)", example: `s = "  hello  "\ns.strip()   # 'hello'\ns.lstrip()  # 'hello  '\n"xxhelloxx".strip("x")  # 'hello'` },
+  { method: "s.replace(old, new)", desc: "Replace all occurrences", example: `s = "hello world"\ns.replace("world", "python")  # 'hello python'\ns.replace("l", "L")  # 'heLLo worLd'` },
+  { method: "s.find(sub) / s.index(sub)", desc: "Find substring index", example: `s = "hello world"\ns.find("world")  # 6\ns.find("xyz")    # -1 (not found)\ns.index("xyz")   # ValueError! (use find instead)` },
+  { method: "s.startswith() / s.endswith()", desc: "Check prefix or suffix", example: `url = "https://google.com"\nurl.startswith("https")  # True\nurl.endswith(".com")     # True` },
+  { method: "s.lower() / s.upper() / s.capitalize()", desc: "Case conversion", example: `s = "Hello World"\ns.lower()       # 'hello world'\ns.upper()       # 'HELLO WORLD'\ns.capitalize()  # 'Hello world'` },
+  { method: "s.isalpha() / s.isdigit() / s.isalnum()", desc: "Character type checks", example: `"abc".isalpha()   # True\n"123".isdigit()   # True\n"a1b2".isalnum()  # True\n"a b".isalnum()   # False (space)` },
+  { method: "s[::-1]", desc: "Reverse a string", example: `s = "hello"\ns[::-1]  # 'olleh'\n\n# Check palindrome:\ns == s[::-1]  # True if palindrome` },
+  { method: "ord(c) / chr(n)", desc: "Character ↔ ASCII/Unicode number", example: `ord('a')  # 97\nord('A')  # 65\nchr(97)   # 'a'\n\n# Get position in alphabet:\nord('c') - ord('a')  # 2` },
+  { method: "f-strings", desc: "Formatted string literals", example: `name = "Alice"\nage = 25\nf"{name} is {age} years old"  # 'Alice is 25 years old'\nf"{3.14159:.2f}"  # '3.14' (2 decimal places)\nf"{42:05d}"       # '00042' (zero-padded)` },
+  { method: "''.join(list)", desc: "Build string from characters (O(n) vs O(n²))", example: `# BAD: s += char in loop is O(n²)\n# GOOD: collect chars, join at end\nchars = []\nfor c in "hello":\n    chars.append(c.upper())\nresult = ''.join(chars)  # 'HELLO'` },
+  { method: "s.count(sub)", desc: "Count non-overlapping occurrences", example: `"banana".count("a")   # 3\n"banana".count("ana") # 1 (non-overlapping)` },
+  { method: "s.zfill(width) / s.ljust() / s.rjust()", desc: "Padding and alignment", example: `"42".zfill(5)       # '00042'\n"hi".ljust(5, '.')  # 'hi...'\n"hi".rjust(5, '.')  # '...hi'` },
+];
+
+export const dictionariesCheatSheet = [
+  { method: "d[key] = value", desc: "Set a key-value pair — O(1)", example: `d = {}\nd["name"] = "Alice"\nd["age"] = 25\n# d = {"name": "Alice", "age": 25}` },
+  { method: "d.get(key, default)", desc: "Safe lookup (no KeyError) — O(1)", example: `d = {"a": 1, "b": 2}\nd.get("a")      # 1\nd.get("x")      # None (no error!)\nd.get("x", 0)   # 0 (custom default)` },
+  { method: "key in d", desc: "Check if key exists — O(1)", example: `d = {"name": "Alice", "age": 25}\n"name" in d  # True\n"email" in d # False` },
+  { method: "d.items() / d.keys() / d.values()", desc: "Iterate key-value pairs", example: `d = {"a": 1, "b": 2}\nfor key, val in d.items():\n    print(key, val)  # a 1, b 2\n\nlist(d.keys())    # ['a', 'b']\nlist(d.values())  # [1, 2]` },
+  { method: "del d[key] / d.pop(key)", desc: "Remove a key-value pair", example: `d = {"a": 1, "b": 2, "c": 3}\ndel d["b"]        # d = {"a": 1, "c": 3}\nval = d.pop("c")  # val = 3, d = {"a": 1}\nd.pop("x", None)  # None (no error with default)` },
+  { method: "d.setdefault(key, val)", desc: "Get if exists, else set and return", example: `d = {}\nd.setdefault("fruits", []).append("apple")\nd.setdefault("fruits", []).append("banana")\n# d = {"fruits": ["apple", "banana"]}` },
+  { method: "collections.Counter(iterable)", desc: "Count element frequencies", example: `from collections import Counter\n\nwords = ['a', 'b', 'a', 'c', 'a', 'b']\ncount = Counter(words)\n# Counter({'a': 3, 'b': 2, 'c': 1})\ncount.most_common(2)  # [('a', 3), ('b', 2)]` },
+  { method: "collections.defaultdict(type)", desc: "Dict with auto-default for missing keys", example: `from collections import defaultdict\n\n# Group by first letter\nwords = ['apple', 'banana', 'avocado', 'blueberry']\ngroups = defaultdict(list)\nfor w in words:\n    groups[w[0]].append(w)\n# {'a': ['apple','avocado'], 'b': ['banana','blueberry']}` },
+  { method: "dict comprehension", desc: "Create dicts in one line", example: `# Square mapping\nsq = {x: x**2 for x in range(5)}\n# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n\n# Filter\nd = {"a": 1, "b": 2, "c": 3}\nbig = {k: v for k, v in d.items() if v > 1}\n# {"b": 2, "c": 3}` },
+  { method: "d.update(other)", desc: "Merge another dict (overwrites existing keys)", example: `d1 = {"a": 1, "b": 2}\nd2 = {"b": 99, "c": 3}\nd1.update(d2)\n# d1 = {"a": 1, "b": 99, "c": 3}` },
+  { method: "sorted(d, key=d.get)", desc: "Sort dict by values", example: `scores = {"Alice": 95, "Bob": 87, "Charlie": 92}\nsorted_names = sorted(scores, key=scores.get, reverse=True)\n# ['Alice', 'Charlie', 'Bob']` },
+  { method: "zip(keys, values) → dict", desc: "Create dict from two lists", example: `keys = ['name', 'age', 'city']\nvals = ['Alice', 25, 'NYC']\nd = dict(zip(keys, vals))\n# {"name": "Alice", "age": 25, "city": "NYC"}` },
+];
+
+export const sortingCheatSheet = [
+  { method: "arr.sort() / sorted(arr)", desc: "Timsort — O(n log n), stable", example: `nums = [3, 1, 4, 1, 5]\nnums.sort()              # In-place: [1, 1, 3, 4, 5]\nnew = sorted([3,1,4])    # New list: [1, 3, 4]\nsorted([3,1,4], reverse=True)  # [4, 3, 1]` },
+  { method: "sort(key=lambda ...)", desc: "Sort by custom criteria", example: `# Sort by second element\npairs = [(1,3), (2,1), (3,2)]\npairs.sort(key=lambda x: x[1])\n# [(2,1), (3,2), (1,3)]\n\n# Sort strings by length\nwords = ['banana', 'pie', 'apple']\nsorted(words, key=len)  # ['pie', 'apple', 'banana']` },
+  { method: "bisect.bisect_left(arr, x)", desc: "Binary search insertion point — O(log n)", example: `import bisect\narr = [1, 3, 5, 7, 9]\nbisect.bisect_left(arr, 5)   # 2 (index of 5)\nbisect.bisect_left(arr, 4)   # 2 (where 4 would go)\nbisect.bisect_right(arr, 5)  # 3 (after existing 5)` },
+  { method: "bisect.insort(arr, x)", desc: "Insert maintaining sorted order — O(n)", example: `import bisect\narr = [1, 3, 5, 7]\nbisect.insort(arr, 4)\n# arr = [1, 3, 4, 5, 7]` },
+  { method: "heapq.heapify(arr)", desc: "Convert list to min-heap — O(n)", example: `import heapq\nnums = [5, 3, 8, 1, 4]\nheapq.heapify(nums)\n# nums is now a heap: [1, 3, 8, 5, 4]\n# Note: NOT fully sorted, but heap property holds` },
+  { method: "heapq.heappush / heappop", desc: "Push/pop from heap — O(log n)", example: `import heapq\nh = []\nheapq.heappush(h, 5)\nheapq.heappush(h, 2)\nheapq.heappush(h, 8)\nheapq.heappop(h)  # 2 (always returns smallest)\nheapq.heappop(h)  # 5` },
+  { method: "heapq.nlargest / nsmallest", desc: "Get top K elements — O(n log k)", example: `import heapq\nnums = [10, 4, 6, 8, 2, 9, 1]\nheapq.nlargest(3, nums)   # [10, 9, 8]\nheapq.nsmallest(3, nums)  # [1, 2, 4]` },
+  { method: "Max heap trick (negate values)", desc: "Python only has min-heap, negate for max", example: `import heapq\n# Max heap: negate values\nh = []\nheapq.heappush(h, -5)  # push 5\nheapq.heappush(h, -8)  # push 8\nheapq.heappush(h, -2)  # push 2\nmax_val = -heapq.heappop(h)  # 8 (largest!)` },
+  { method: "functools.cmp_to_key", desc: "Custom comparator for sorting", example: `from functools import cmp_to_key\n\n# Largest Number problem\ndef compare(a, b):\n    if a + b > b + a: return -1\n    return 1\n\nnums = ['3', '30', '34']\nnums.sort(key=cmp_to_key(compare))\n# ['34', '3', '30'] → "34330"` },
+  { method: "Binary search template", desc: "Standard interview template", example: `def binary_search(arr, target):\n    lo, hi = 0, len(arr) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1  # not found` },
+];
+
+export const stacksQueuesCheatSheet = [
+  { method: "Stack using list", desc: "append() = push, pop() = pop — O(1)", example: `stack = []\nstack.append(1)  # push 1\nstack.append(2)  # push 2\nstack.append(3)  # push 3\ntop = stack[-1]  # peek → 3\nval = stack.pop()# pop → 3\n# stack = [1, 2]` },
+  { method: "collections.deque (Queue)", desc: "O(1) append and popleft", example: `from collections import deque\nq = deque()\nq.append(1)      # enqueue 1\nq.append(2)      # enqueue 2\nq.append(3)      # enqueue 3\nfront = q[0]     # peek → 1\nval = q.popleft()# dequeue → 1\n# q = deque([2, 3])` },
+  { method: "deque as double-ended", desc: "appendleft + pop from both ends", example: `from collections import deque\nd = deque([1, 2, 3])\nd.appendleft(0)  # [0, 1, 2, 3]\nd.append(4)      # [0, 1, 2, 3, 4]\nd.popleft()      # 0 → [1, 2, 3, 4]\nd.pop()          # 4 → [1, 2, 3]` },
+  { method: "Monotonic stack pattern", desc: "Next greater element template", example: `# Find next greater element for each index\ndef next_greater(nums):\n    n = len(nums)\n    result = [-1] * n\n    stack = []  # stores indices\n    for i in range(n):\n        while stack and nums[i] > nums[stack[-1]]:\n            result[stack.pop()] = nums[i]\n        stack.append(i)\n    return result\n# [1,3,2,4] → [3,4,4,-1]` },
+  { method: "Valid parentheses pattern", desc: "Push open, pop on close, check match", example: `def is_valid(s):\n    stack = []\n    pairs = {')':'(', ']':'[', '}':'{'}\n    for c in s:\n        if c in '({[':\n            stack.append(c)\n        elif not stack or stack.pop() != pairs[c]:\n            return False\n    return len(stack) == 0\n# "({[]})" → True, "([)]" → False` },
+  { method: "queue.Queue (thread-safe)", desc: "For multi-threaded programs", example: `from queue import Queue\nq = Queue(maxsize=10)\nq.put(1)          # enqueue (blocks if full)\nq.put(2)\nval = q.get()     # dequeue → 1 (blocks if empty)\nq.empty()         # False\nq.qsize()         # 1` },
+  { method: "BFS template with queue", desc: "Level-order traversal", example: `from collections import deque\ndef bfs(graph, start):\n    visited = {start}\n    queue = deque([start])\n    while queue:\n        node = queue.popleft()\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return visited` },
+  { method: "Stack for DFS", desc: "Iterative depth-first search", example: `def dfs(graph, start):\n    visited = set()\n    stack = [start]\n    while stack:\n        node = stack.pop()\n        if node not in visited:\n            visited.add(node)\n            for neighbor in graph[node]:\n                stack.append(neighbor)\n    return visited` },
+  { method: "Min Stack (O(1) getMin)", desc: "Track minimum at each level", example: `class MinStack:\n    def __init__(self):\n        self.stack = []  # (value, current_min)\n    def push(self, val):\n        cur_min = min(val, self.stack[-1][1] if self.stack else val)\n        self.stack.append((val, cur_min))\n    def pop(self): self.stack.pop()\n    def getMin(self): return self.stack[-1][1]` },
+  { method: "deque for sliding window max", desc: "Monotonic decreasing deque", example: `from collections import deque\ndef max_sliding_window(nums, k):\n    dq = deque()  # stores indices, decreasing values\n    result = []\n    for i in range(len(nums)):\n        while dq and nums[i] >= nums[dq[-1]]:\n            dq.pop()\n        dq.append(i)\n        if dq[0] <= i - k: dq.popleft()\n        if i >= k - 1: result.append(nums[dq[0]])\n    return result` },
+];

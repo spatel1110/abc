@@ -4,7 +4,9 @@ import AnimationControls from '../components/AnimationControls';
 import StackVisualizer from '../visualizers/StackVisualizer';
 import CodeBlock from '../components/CodeBlock';
 import ProblemSection from '../components/ProblemSection';
+import CheatSheet from '../components/CheatSheet';
 import { stacksQueuesProblems } from '../data/stacksQueuesProblems';
+import { stacksQueuesCheatSheet } from '../data/cheatSheets';
 
 function StackQueueVisualizer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -182,20 +184,7 @@ export default function StacksQueuesPage() {
       {/* CHEAT SHEET */}
       <section className="section">
         <div className="section-title"><h2>📋 Cheat Sheet</h2></div>
-        <div className="cheat-grid">
-          <div className="cheat-item"><code>stack = []</code><p>Create a stack using a regular list</p></div>
-          <div className="cheat-item"><code>stack.append(x)</code><p>Push x onto top of stack — O(1)</p></div>
-          <div className="cheat-item"><code>stack.pop()</code><p>Pop and return top element — O(1)</p></div>
-          <div className="cheat-item"><code>stack[-1]</code><p>Peek at top without removing</p></div>
-          <div className="cheat-item"><code>len(stack) == 0</code><p>Check if stack is empty</p></div>
-          <div className="cheat-item"><code>from collections import deque</code><p>Import deque for efficient queue</p></div>
-          <div className="cheat-item"><code>q = deque()</code><p>Create a queue</p></div>
-          <div className="cheat-item"><code>q.append(x)</code><p>Enqueue — add to rear — O(1)</p></div>
-          <div className="cheat-item"><code>q.popleft()</code><p>Dequeue — remove from front — O(1)</p></div>
-          <div className="cheat-item"><code>q[0]</code><p>Peek at front of queue</p></div>
-          <div className="cheat-item"><code>q.appendleft(x)</code><p>Add to front (useful for deque)</p></div>
-          <div className="cheat-item"><code>from queue import Queue</code><p>Thread-safe queue (for concurrency)</p></div>
-        </div>
+        <CheatSheet items={stacksQueuesCheatSheet} />
       </section>
 
       {/* CODE EXAMPLES */}

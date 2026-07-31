@@ -4,7 +4,9 @@ import AnimationControls from '../components/AnimationControls';
 import HashMapVisualizer from '../visualizers/HashMapVisualizer';
 import CodeBlock from '../components/CodeBlock';
 import ProblemSection from '../components/ProblemSection';
+import CheatSheet from '../components/CheatSheet';
 import { dictionariesProblems } from '../data/dictionariesProblems';
+import { dictionariesCheatSheet } from '../data/cheatSheets';
 
 function DictVisualizer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -169,22 +171,7 @@ export default function DictionariesPage() {
       {/* CHEAT SHEET */}
       <section className="section">
         <div className="section-title"><h2>📋 Cheat Sheet</h2></div>
-        <div className="cheat-grid">
-          <div className="cheat-item"><code>d[key] = value</code><p>Set pair → <span className="cheat-ex">d={}; d["a"]=1 → {'{'}'a':1{'}'}</span></p></div>
-          <div className="cheat-item"><code>d.get(key, default)</code><p>Safe get → <span className="cheat-ex">{'{}' }.get("x",0) → 0 (no KeyError)</span></p></div>
-          <div className="cheat-item"><code>d.keys()</code><p>All keys → <span className="cheat-ex">{'{'}1:"a",2:"b"{'}'}.keys() → [1,2]</span></p></div>
-          <div className="cheat-item"><code>d.values()</code><p>All values → <span className="cheat-ex">{'{'}1:"a",2:"b"{'}'}.values() → ['a','b']</span></p></div>
-          <div className="cheat-item"><code>d.items()</code><p>Key-value pairs → <span className="cheat-ex">{'{'}1:"a"{'}'}.items() → [(1,'a')]</span></p></div>
-          <div className="cheat-item"><code>key in d</code><p>Check exists O(1) → <span className="cheat-ex">"a" in {'{'}"a":1{'}'} → True</span></p></div>
-          <div className="cheat-item"><code>del d[key]</code><p>Remove pair → <span className="cheat-ex">del d["a"] removes key 'a'</span></p></div>
-          <div className="cheat-item"><code>d.setdefault(key, val)</code><p>Get or set → <span className="cheat-ex">d.setdefault("x",[]).append(1)</span></p></div>
-          <div className="cheat-item"><code>Counter(list)</code><p>Count items → <span className="cheat-ex">Counter([1,1,2]) → {'{'}1:2, 2:1{'}'}</span></p></div>
-          <div className="cheat-item"><code>defaultdict(int)</code><p>Auto-default → <span className="cheat-ex">d=defaultdict(int); d["x"]+=1 → {'{'}x:1{'}'}</span></p></div>
-          <div className="cheat-item"><code>d.pop(key)</code><p>Remove & return → <span className="cheat-ex">{'{'}1:2{'}'}.pop(1) → 2, d={'{'}{'}'}</span></p></div>
-          <div className="cheat-item"><code>d.update(other)</code><p>Merge → <span className="cheat-ex">{'{'}1:1{'}'}.update({'{'}2:2{'}'}) → {'{'}1:1,2:2{'}'}</span></p></div>
-          <div className="cheat-item"><code>{`{k:v for k,v in ...}`}</code><p>Dict comp → <span className="cheat-ex">{'{'}x:x*2 for x in [1,2]{'}'} → {'{'}1:2,2:4{'}'}</span></p></div>
-          <div className="cheat-item"><code>len(d)</code><p>Count pairs → <span className="cheat-ex">len({'{'}"a":1,"b":2{'}'}) → 2</span></p></div>
-        </div>
+        <CheatSheet items={dictionariesCheatSheet} />
       </section>
 
       {/* CODE EXAMPLES */}

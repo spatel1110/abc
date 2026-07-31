@@ -4,7 +4,9 @@ import AnimationControls from '../components/AnimationControls';
 import ArrayVisualizer from '../visualizers/ArrayVisualizer';
 import CodeBlock from '../components/CodeBlock';
 import ProblemSection from '../components/ProblemSection';
+import CheatSheet from '../components/CheatSheet';
 import { listsProblems } from '../data/listsProblems';
+import { listsCheatSheet } from '../data/cheatSheets';
 
 function ListsVisualizer() {
   const [array, setArray] = useState([64, 34, 25, 12, 22, 11, 90]);
@@ -153,24 +155,7 @@ export default function ListsPage() {
       {/* CHEAT SHEET */}
       <section className="section">
         <div className="section-title"><h2>📋 Cheat Sheet</h2></div>
-        <div className="cheat-grid">
-          <div className="cheat-item"><code>arr.append(x)</code><p>Add x to the end → <span className="cheat-ex">[1,2].append(3) → [1,2,3]</span></p></div>
-          <div className="cheat-item"><code>arr.pop()</code><p>Remove & return last → <span className="cheat-ex">[1,2,3].pop() → 3, arr=[1,2]</span></p></div>
-          <div className="cheat-item"><code>arr.pop(i)</code><p>Remove at index i → <span className="cheat-ex">[1,2,3].pop(1) → 2, arr=[1,3]</span></p></div>
-          <div className="cheat-item"><code>arr.insert(i, x)</code><p>Insert x at position i → <span className="cheat-ex">[1,3].insert(1,2) → [1,2,3]</span></p></div>
-          <div className="cheat-item"><code>arr.remove(x)</code><p>Remove first x found → <span className="cheat-ex">[1,2,2,3].remove(2) → [1,2,3]</span></p></div>
-          <div className="cheat-item"><code>arr.sort()</code><p>Sort in-place, returns None → <span className="cheat-ex">[3,1,2].sort() → arr=[1,2,3]</span></p></div>
-          <div className="cheat-item"><code>sorted(arr)</code><p>New sorted list, original unchanged → <span className="cheat-ex">sorted([3,1,2]) → [1,2,3]</span></p></div>
-          <div className="cheat-item"><code>arr.sort(key=lambda x: x[1])</code><p>Sort by custom key → <span className="cheat-ex">[(1,3),(2,1)].sort(key=λ x:x[1]) → [(2,1),(1,3)]</span></p></div>
-          <div className="cheat-item"><code>arr[::-1]</code><p>Reverse via slice → <span className="cheat-ex">[1,2,3][::-1] → [3,2,1]</span></p></div>
-          <div className="cheat-item"><code>arr[start:end]</code><p>Slice (end exclusive) → <span className="cheat-ex">[10,20,30,40][1:3] → [20,30]</span></p></div>
-          <div className="cheat-item"><code>len(arr)</code><p>Get count → <span className="cheat-ex">len([1,2,3]) → 3</span></p></div>
-          <div className="cheat-item"><code>[x for x in arr if x &gt; 0]</code><p>Filter → <span className="cheat-ex">[x for x in [-1,2,-3,4] if x&gt;0] → [2,4]</span></p></div>
-          <div className="cheat-item"><code>enumerate(arr)</code><p>Index + value → <span className="cheat-ex">list(enumerate(['a','b'])) → [(0,'a'),(1,'b')]</span></p></div>
-          <div className="cheat-item"><code>zip(a, b)</code><p>Pair items → <span className="cheat-ex">list(zip([1,2],['a','b'])) → [(1,'a'),(2,'b')]</span></p></div>
-          <div className="cheat-item"><code>arr.index(x)</code><p>Find index of first x → <span className="cheat-ex">[10,20,30].index(20) → 1</span></p></div>
-          <div className="cheat-item"><code>arr.extend(other)</code><p>Add all from other → <span className="cheat-ex">[1,2].extend([3,4]) → [1,2,3,4]</span></p></div>
-        </div>
+        <CheatSheet items={listsCheatSheet} />
       </section>
 
       {/* CODE EXAMPLES */}
