@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AnimationControls from '../components/AnimationControls';
 import SortingVisualizer from '../visualizers/SortingVisualizer';
 import CodeBlock from '../components/CodeBlock';
-import ProblemTable from '../components/ProblemTable';
+import ProblemSection from '../components/ProblemSection';
 import { sortingProblems } from '../data/sortingProblems';
 
 function SortingSearchingVisualizer() {
@@ -342,7 +342,7 @@ print(kth_largest([3,2,1,5,6,4], 2))  # 5`} />
       {/* LEETCODE PROBLEMS */}
       <section className="section">
         <div className="section-title"><h2>🎯 LeetCode Problems (29)</h2></div>
-        <ProblemTable problems={sortingProblems} />
+        <ProblemSection problems={sortingProblems} topic="sorting" count={29} />
       </section>
 
       <style>{`

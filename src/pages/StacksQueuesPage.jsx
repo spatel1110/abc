@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AnimationControls from '../components/AnimationControls';
 import StackVisualizer from '../visualizers/StackVisualizer';
 import CodeBlock from '../components/CodeBlock';
-import ProblemTable from '../components/ProblemTable';
+import ProblemSection from '../components/ProblemSection';
 import { stacksQueuesProblems } from '../data/stacksQueuesProblems';
 
 function StackQueueVisualizer() {
@@ -304,7 +304,7 @@ print(bfs_level_order(graph, 'A'))  # [['A'], ['B','C'], ['D','E','F']]`} />
       {/* LEETCODE PROBLEMS */}
       <section className="section">
         <div className="section-title"><h2>🎯 LeetCode Problems (29)</h2></div>
-        <ProblemTable problems={stacksQueuesProblems} />
+        <ProblemSection problems={stacksQueuesProblems} topic="stacks-queues" count={29} />
       </section>
 
       <style>{`

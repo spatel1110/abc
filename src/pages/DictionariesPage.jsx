@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AnimationControls from '../components/AnimationControls';
 import HashMapVisualizer from '../visualizers/HashMapVisualizer';
 import CodeBlock from '../components/CodeBlock';
-import ProblemTable from '../components/ProblemTable';
+import ProblemSection from '../components/ProblemSection';
 import { dictionariesProblems } from '../data/dictionariesProblems';
 
 function DictVisualizer() {
@@ -273,7 +273,7 @@ print(top_k_frequent([1,1,1,2,2,3], 2))  # [1, 2]`} />
       {/* LEETCODE PROBLEMS */}
       <section className="section">
         <div className="section-title"><h2>🎯 LeetCode Problems (28)</h2></div>
-        <ProblemTable problems={dictionariesProblems} />
+        <ProblemSection problems={dictionariesProblems} topic="dictionaries" count={28} />
       </section>
 
       <style>{`

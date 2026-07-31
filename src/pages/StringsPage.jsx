@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AnimationControls from '../components/AnimationControls';
 import ArrayVisualizer from '../visualizers/ArrayVisualizer';
 import CodeBlock from '../components/CodeBlock';
-import ProblemTable from '../components/ProblemTable';
+import ProblemSection from '../components/ProblemSection';
 import { stringsProblems } from '../data/stringsProblems';
 
 function StringsVisualizer() {
@@ -268,7 +268,7 @@ print(is_anagram("listen", "silent"))  # True`} />
       {/* LEETCODE PROBLEMS */}
       <section className="section">
         <div className="section-title"><h2>🎯 LeetCode Problems (47)</h2></div>
-        <ProblemTable problems={stringsProblems} />
+        <ProblemSection problems={stringsProblems} topic="strings" count={47} />
       </section>
 
       <style>{`

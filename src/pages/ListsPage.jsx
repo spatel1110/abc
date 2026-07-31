@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import AnimationControls from '../components/AnimationControls';
 import ArrayVisualizer from '../visualizers/ArrayVisualizer';
 import CodeBlock from '../components/CodeBlock';
-import ProblemTable from '../components/ProblemTable';
+import ProblemSection from '../components/ProblemSection';
 import { listsProblems } from '../data/listsProblems';
 
 function ListsVisualizer() {
@@ -263,7 +263,7 @@ print(range_sum(prefix, 1, 4))  # 11 (sum of [1, 4, 1, 5])`} />
       {/* LEETCODE PROBLEMS */}
       <section className="section">
         <div className="section-title"><h2>🎯 LeetCode Problems (55)</h2></div>
-        <ProblemTable problems={listsProblems} />
+        <ProblemSection problems={listsProblems} topic="lists" count={55} />
       </section>
 
       <style>{`
