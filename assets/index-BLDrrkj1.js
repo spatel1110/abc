@@ -7450,227 +7450,678 @@ for key, group in groupby(data, key=lambda x: x[0]):
         .mem-table {
           overflow-x: auto;
         }
-      `})]})}function _h(){return(0,J.jsxs)(Z.div,{initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.4},children:[(0,J.jsx)(`h1`,{children:`Object-Oriented Programming in Python`}),(0,J.jsx)(`p`,{style:{fontSize:`1.1rem`,color:`var(--text-secondary)`},children:`OOP is the backbone of system design interviews. Classes, the four pillars, dunder methods, design patterns, and real interview problems — everything you need to write clean, extensible Python under pressure.`}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🏗️ Classes & Objects`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`The Blueprint Analogy`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY it matters`}),(0,J.jsxs)(`p`,{children:[`Interviewers expect you to model problems as classes. A class is a blueprint; objects are houses built from it. `,(0,J.jsx)(`code`,{children:`__init__`}),` is the constructor that sets up each instance's state.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT to know`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`self`}),` refers to the current instance. Instance attributes live on `,(0,J.jsx)(`code`,{children:`self`}),`. Class attributes are shared. `,(0,J.jsx)(`code`,{children:`__init__`}),` runs automatically on creation.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW to use`}),(0,J.jsxs)(`p`,{children:[`Define attributes in `,(0,J.jsx)(`code`,{children:`__init__`}),`, add methods for behavior. Use classes to encapsulate state + operations that belong together.`]})]})]})]}),(0,J.jsx)($,{title:`ListNode and Stack — interview staples`,code:`class ListNode:
+      `})]})}function _h(){return(0,J.jsxs)(Z.div,{initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.4},children:[(0,J.jsx)(`h1`,{style:{background:`linear-gradient(135deg, var(--coral), var(--ice))`,WebkitBackgroundClip:`text`,WebkitTextFillColor:`transparent`,fontSize:`2.4rem`},children:`Object-Oriented Programming — From Zero to Interview Ready`}),(0,J.jsx)(`p`,{style:{fontSize:`1.1rem`,color:`var(--text-secondary)`,lineHeight:1.8},children:`Forget memorizing definitions. This page teaches you OOP the way a senior engineer would explain it over coffee. If you know Python basics (variables, functions, lists) — you're ready. Let's build your intuition from scratch.`}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🧠 What Is OOP?`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Programming is about organizing code. OOP is ONE way to organize it.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsxs)(`p`,{children:[`Think of a TV remote. It has `,(0,J.jsx)(`strong`,{children:`data`}),` (current channel, volume level) and `,(0,J.jsx)(`strong`,{children:`actions`}),` (change channel, mute, power off). The remote bundles related data and behavior together. That's an object.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`PLAIN ENGLISH`}),(0,J.jsx)(`p`,{children:`Without OOP, you'd have scattered variables and functions everywhere. OOP says: "Group related stuff together." A Player object has health, position, AND the ability to move/attack. Everything about a player lives in one place.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY BOTHER?`}),(0,J.jsx)(`p`,{children:`Real programs have thousands of variables. OOP stops chaos. Each object manages its own state. You think in terms of "things" rather than raw data floating around.`})]})]})]}),(0,J.jsx)($,{title:`Procedural vs OOP — same problem, two approaches`,code:`# === PROCEDURAL (scattered data + functions) ===
+player_name = "Alice"
+player_health = 100
+player_x = 0
+
+def move_player(x, dx):
+    return x + dx
+
+def take_damage(health, dmg):
+    return max(0, health - dmg)
+
+# Problems: What if you have 50 players?
+# You'd need 50 separate variables. Nightmare.
+
+# === OOP (everything about a player lives together) ===
+class Player:
+    def __init__(self, name, health=100):
+        self.name = name
+        self.health = health
+        self.x = 0
+
+    def move(self, dx):
+        self.x += dx
+
+    def take_damage(self, dmg):
+        self.health = max(0, self.health - dmg)
+
+# Now 50 players? Easy.
+players = [Player(f"Player_{i}") for i in range(50)]
+players[0].move(5)       # Only player 0 moves
+players[1].take_damage(20)  # Only player 1 takes damage`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🏗️ Classes & Objects — The Foundation`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Class = Blueprint. Object = Actual Thing.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsx)(`p`,{children:`A class is like a house blueprint. It says "every house has a door, windows, and a roof." But the blueprint isn't a house — you can't live in paper. When you BUILD a house from that blueprint, THAT's an object. You can build 100 different houses from one blueprint.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`KEY CONCEPTS`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`__init__`}),` = the constructor. It runs automatically when you create an object. Think of it as "set up this specific house." `,(0,J.jsx)(`code`,{children:`self`}),` = "this particular house." When house #3 says `,(0,J.jsx)(`code`,{children:`self.color`}),`, it means the color of house #3, not house #7.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`INSTANCE vs CLASS ATTRIBUTES`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`strong`,{children:`Instance attributes`}),` = each house has its own color. `,(0,J.jsx)(`strong`,{children:`Class attributes`}),` = all houses share the same architect. Instance: `,(0,J.jsx)(`code`,{children:`self.color = "blue"`}),`. Class: defined outside `,(0,J.jsx)(`code`,{children:`__init__`}),`, shared by everyone.`]})]})]})]}),(0,J.jsx)($,{title:`Person class — your first class explained line by line`,code:`class Person:
+    # Class attribute — shared by ALL Person objects
+    species = "Homo sapiens"
+
+    def __init__(self, name, age):
+        # Instance attributes — unique to EACH person
+        self.name = name    # This person's name
+        self.age = age      # This person's age
+
+    def greet(self):
+        # Method — something a person can DO
+        return f"Hi, I'm {self.name} and I'm {self.age}!"
+
+    def have_birthday(self):
+        self.age += 1
+        return f"Happy birthday {self.name}! Now {self.age}."
+
+# Creating objects (instances) from the class (blueprint)
+alice = Person("Alice", 25)   # __init__ runs automatically
+bob = Person("Bob", 30)       # Different person, same blueprint
+
+print(alice.greet())           # Hi, I'm Alice and I'm 25!
+print(bob.greet())             # Hi, I'm Bob and I'm 30!
+print(alice.species)           # Homo sapiens (shared)
+print(bob.species)             # Homo sapiens (same value!)`}),(0,J.jsx)($,{title:`ListNode — the class you'll use in EVERY linked list interview`,code:`class ListNode:
     def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+        self.val = val      # Data this node holds
+        self.next = next    # Pointer to next node (or None)
+
     def __repr__(self):
         return f"ListNode({self.val})"
 
-class Stack:
-    def __init__(self):
-        self._items = []
-    def push(self, val):
-        self._items.append(val)
-    def pop(self):
-        if not self._items:
-            raise IndexError("pop from empty stack")
-        return self._items.pop()
-    def peek(self):
-        return self._items[-1] if self._items else None
-    def is_empty(self):
-        return len(self._items) == 0
-    def __len__(self):
-        return len(self._items)`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🏛️ The Four Pillars of OOP`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Encapsulation`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY it matters`}),(0,J.jsx)(`p`,{children:`Protects internal state from accidental corruption. Interviewers check if you hide details and expose controlled access via properties.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT to know`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`_single`}),` = private by convention. `,(0,J.jsx)(`code`,{children:`__double`}),` = name-mangled to `,(0,J.jsx)(`code`,{children:`_Class__attr`}),`. `,(0,J.jsx)(`code`,{children:`@property`}),` = controlled getter/setter.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW to use`}),(0,J.jsxs)(`p`,{children:[`Use `,(0,J.jsx)(`code`,{children:`@property`}),` for validation, computed attributes, or read-only access. Prefix internals with `,(0,J.jsx)(`code`,{children:`_`}),`.`]})]})]})]}),(0,J.jsx)($,{title:`BankAccount — encapsulation with @property`,code:`class BankAccount:
+# Building a linked list: 1 -> 2 -> 3
+head = ListNode(1)
+head.next = ListNode(2)
+head.next.next = ListNode(3)
+
+# Traversing it
+current = head
+while current:
+    print(current.val, end=" -> ")
+    current = current.next
+# Output: 1 -> 2 -> 3 ->`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🔒 Encapsulation — Protect Your Data`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Don't let outsiders mess with your internal state directly.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsx)(`p`,{children:`An ATM machine. You can't reach inside and grab cash. You use the interface — buttons, screen, card slot. The machine CONTROLS what you can do. It validates your PIN, checks your balance, THEN gives you money. That's encapsulation.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`THREE LEVELS IN PYTHON`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`self.name`}),` = public (anyone can access). `,(0,J.jsx)(`code`,{children:`self._name`}),` = private by convention ("please don't touch"). `,(0,J.jsx)(`code`,{children:`self.__name`}),` = name-mangling (Python renames it to prevent accidental access). `,(0,J.jsx)(`code`,{children:`@property`}),` = the "security guard" that validates before allowing changes.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY INTERVIEWS CARE`}),(0,J.jsxs)(`p`,{children:[`It shows you think about API design. If someone can set `,(0,J.jsx)(`code`,{children:`account.balance = -1000`}),` directly, that's a bug waiting to happen. Encapsulation prevents this by forcing access through validated methods.`]})]})]})]}),(0,J.jsx)($,{title:`BankAccount — encapsulation with validation`,code:`class BankAccount:
     def __init__(self, owner, balance=0):
-        self.owner = owner
-        self.__balance = balance  # name-mangled
+        self.owner = owner          # Public — anyone can see the owner
+        self.__balance = balance    # Private — can't do account.__balance
+
     @property
     def balance(self):
+        """The security guard — controls READ access."""
         return self.__balance
+
     @balance.setter
     def balance(self, amount):
+        """The security guard — controls WRITE access."""
         if amount < 0:
-            raise ValueError("Balance cannot be negative")
+            raise ValueError("Nice try. Balance can't be negative.")
         self.__balance = amount
+
     def deposit(self, amount):
         if amount <= 0:
             raise ValueError("Deposit must be positive")
         self.__balance += amount
+        return f"Deposited \${amount}. New balance: \${self.__balance}"
+
     def withdraw(self, amount):
         if amount > self.__balance:
-            raise ValueError("Insufficient funds")
-        self.__balance -= amount`}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Inheritance`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY it matters`}),(0,J.jsxs)(`p`,{children:[`Reuse code via parent classes. Override methods for specialized behavior. `,(0,J.jsx)(`code`,{children:`super()`}),` calls the parent — essential for cooperative inheritance.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT to know`}),(0,J.jsxs)(`p`,{children:[`Child inherits all parent methods/attributes. Override by redefining. Use `,(0,J.jsx)(`code`,{children:`super().__init__()`}),` to initialize parent state. Python supports multiple inheritance via MRO.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW to use`}),(0,J.jsxs)(`p`,{children:[`Put shared logic in parent. Override only what differs. Always call `,(0,J.jsx)(`code`,{children:`super()`}),` in `,(0,J.jsx)(`code`,{children:`__init__`}),`.`]})]})]})]}),(0,J.jsx)($,{title:`Animal hierarchy — inheritance and super()`,code:`class Animal:
+            raise ValueError("Insufficient funds!")
+        self.__balance -= amount
+        return f"Withdrew \${amount}. Remaining: \${self.__balance}"
+
+# Usage
+acc = BankAccount("Alice", 1000)
+acc.deposit(500)        # Works! Balance is now 1500
+acc.withdraw(200)       # Works! Balance is now 1300
+# acc.balance = -999    # BLOCKED! ValueError raised
+# acc.__balance = -999  # Doesn't work — name mangling`}),(0,J.jsx)($,{title:`Temperature — @property for computed values`,code:`class Temperature:
+    def __init__(self, celsius):
+        self._celsius = celsius
+
+    @property
+    def celsius(self):
+        return self._celsius
+
+    @celsius.setter
+    def celsius(self, value):
+        if value < -273.15:
+            raise ValueError("Below absolute zero? Physics says no.")
+        self._celsius = value
+
+    @property
+    def fahrenheit(self):
+        """Computed on the fly — no stored value!"""
+        return self._celsius * 9/5 + 32
+
+    @fahrenheit.setter
+    def fahrenheit(self, value):
+        self.celsius = (value - 32) * 5/9  # Reuses celsius setter validation!
+
+temp = Temperature(100)
+print(temp.fahrenheit)    # 212.0
+temp.fahrenheit = 32      # Sets celsius to 0
+print(temp.celsius)       # 0.0`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🧬 Inheritance — Don't Repeat Yourself`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Child gets everything from parent for free. Can add new stuff or change existing behavior.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsx)(`p`,{children:`You inherit traits from your parents — eye color, height, maybe a talent for cooking. But you ALSO develop your own skills (maybe you learned guitar). And sometimes you do something differently than your parents (they cook traditional food, you cook fusion). That's method overriding.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`KEY MECHANICS`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`class Dog(Animal)`}),` = Dog inherits from Animal. `,(0,J.jsx)(`code`,{children:`super().__init__()`}),` = "run the parent's setup first." Method overriding = redefine a parent's method in the child. MRO = the order Python checks when multiple parents exist.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHEN TO USE`}),(0,J.jsx)(`p`,{children:`"Is-a" relationship: A Dog IS an Animal ✓. A Car IS a Vehicle ✓. A Car IS an Engine? NO — a car HAS an engine (that's composition, covered later).`})]})]})]}),(0,J.jsx)($,{title:`Vehicle hierarchy — inheritance in action`,code:`class Vehicle:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.is_running = False
+
+    def start(self):
+        self.is_running = True
+        return f"{self.make} {self.model} started."
+
+    def stop(self):
+        self.is_running = False
+        return f"{self.make} {self.model} stopped."
+
+class Car(Vehicle):
+    def __init__(self, make, model, year, doors=4):
+        super().__init__(make, model, year)  # Parent sets up make/model/year
+        self.doors = doors  # Car adds its own attribute
+
+    def honk(self):
+        return "Beep beep!"  # Car-specific method
+
+class Truck(Vehicle):
+    def __init__(self, make, model, year, payload_tons):
+        super().__init__(make, model, year)
+        self.payload_tons = payload_tons
+
+    def start(self):
+        # Override parent — trucks have a different start sequence
+        self.is_running = True
+        return f"{self.make} {self.model} rumbles to life! (Payload: {self.payload_tons}T)"
+
+car = Car("Toyota", "Camry", 2023)
+truck = Truck("Ford", "F-150", 2023, 1.5)
+print(car.start())    # Toyota Camry started. (inherited from Vehicle)
+print(truck.start())  # Ford F-150 rumbles to life! (overridden)
+print(car.honk())     # Beep beep! (Car-specific)`}),(0,J.jsx)($,{title:`Animal hierarchy — super() and method overriding`,code:`class Animal:
     def __init__(self, name, sound):
         self.name = name
         self.sound = sound
+
     def speak(self):
         return f"{self.name} says {self.sound}!"
+
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.name!r})"
+        return f"{self.__class__.__name__}('{self.name}')"
 
 class Dog(Animal):
     def __init__(self, name, breed):
-        super().__init__(name, "Woof")
-        self.breed = breed
+        super().__init__(name, "Woof")  # Parent handles name + sound
+        self.breed = breed              # Dog adds breed
+
     def fetch(self):
         return f"{self.name} fetches the ball!"
 
 class Cat(Animal):
     def __init__(self, name):
         super().__init__(name, "Meow")
-    def speak(self):  # Override parent method
-        return f"{self.name} ignores you... then says Meow."
 
-dog = Dog("Rex", "Labrador")
-cat = Cat("Whiskers")
-print(dog.speak())  # Rex says Woof!
-print(cat.speak())  # Whiskers ignores you... then says Meow.`}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Polymorphism & Abstraction`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY it matters`}),(0,J.jsx)(`p`,{children:`Polymorphism = same interface, different behavior. Write code that works on ANY shape, ANY payment method. Abstraction hides complexity behind simple interfaces.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT to know`}),(0,J.jsx)(`p`,{children:`Python uses duck typing: "if it quacks like a duck, it IS a duck." ABC enforces interface contracts — subclasses MUST implement abstract methods or instantiation fails.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW to use`}),(0,J.jsxs)(`p`,{children:[`Use `,(0,J.jsx)(`code`,{children:`ABC`}),` + `,(0,J.jsx)(`code`,{children:`@abstractmethod`}),` to define contracts. Implement in subclasses. Call via parent type for polymorphic behavior.`]})]})]})]}),(0,J.jsx)($,{title:`Shape hierarchy — ABC and polymorphism`,code:`from abc import ABC, abstractmethod
+    def speak(self):  # OVERRIDE — cats have attitude
+        return f"{self.name} stares at you... then says Meow."
+
+# MRO (Method Resolution Order) — Python checks child first, then parent
+print(Dog.__mro__)
+# [Dog, Animal, object] — checks Dog first, then Animal, then base object`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🎭 Polymorphism — One Interface, Many Forms`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`"Poly" = many. "Morph" = forms. Same method name, different behavior depending on the object.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsx)(`p`,{children:`A "Start" button. On a car — it starts the engine. On a computer — it boots the OS. On a washing machine — it begins the cycle. Same action name, completely different behavior. That's polymorphism.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`DUCK TYPING`}),(0,J.jsxs)(`p`,{children:[`Python doesn't care what TYPE an object is. It only cares what the object CAN DO. "If it walks like a duck and quacks like a duck — it's a duck." If your object has a `,(0,J.jsx)(`code`,{children:`.area()`}),` method, Python will call it. It doesn't check if it's officially a "Shape."`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY IT'S POWERFUL`}),(0,J.jsx)(`p`,{children:`You can write ONE function that works with ANY object that has the right methods. Process 10 different payment types with the same code. Calculate area of any shape without knowing which shape it is.`})]})]})]}),(0,J.jsx)($,{title:`Shape — polymorphism with ABC (Abstract Base Class)`,code:`from abc import ABC, abstractmethod
 import math
 
 class Shape(ABC):
+    """Abstract class — you CANNOT create a Shape() directly.
+    Forces every child to implement area() and perimeter()."""
+
     @abstractmethod
-    def area(self): pass
+    def area(self):
+        pass  # No implementation — children MUST provide their own
+
     @abstractmethod
-    def perimeter(self): pass
+    def perimeter(self):
+        pass
+
     def describe(self):
         return f"{self.__class__.__name__}: area={self.area():.2f}"
 
 class Circle(Shape):
     def __init__(self, radius):
         self.radius = radius
+
     def area(self):
         return math.pi * self.radius ** 2
+
     def perimeter(self):
         return 2 * math.pi * self.radius
 
 class Rectangle(Shape):
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+    def __init__(self, w, h):
+        self.w, self.h = w, h
+
     def area(self):
-        return self.width * self.height
+        return self.w * self.h
+
     def perimeter(self):
-        return 2 * (self.width + self.height)
+        return 2 * (self.w + self.h)
 
-# Polymorphism — same interface, different behavior
-shapes = [Circle(5), Rectangle(3, 4), Circle(1)]
-total_area = sum(s.area() for s in shapes)  # Works on ANY shape!`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🔮 Dunder (Magic) Methods`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Make Your Classes Pythonic`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY it matters`}),(0,J.jsxs)(`p`,{children:[`Dunder methods let your objects work with `,(0,J.jsx)(`code`,{children:`+`}),`, `,(0,J.jsx)(`code`,{children:`==`}),`, `,(0,J.jsx)(`code`,{children:`len()`}),`, `,(0,J.jsx)(`code`,{children:`for`}),` loops, `,(0,J.jsx)(`code`,{children:`[]`}),` indexing, and `,(0,J.jsx)(`code`,{children:`print()`}),`. Interviewers love classes that integrate naturally with Python.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT to know`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`__repr__`}),`=debug string, `,(0,J.jsx)(`code`,{children:`__eq__/__hash__`}),`=equality/sets, `,(0,J.jsx)(`code`,{children:`__lt__`}),`=sorting, `,(0,J.jsx)(`code`,{children:`__iter__/__getitem__`}),`=iteration/indexing, `,(0,J.jsx)(`code`,{children:`__add__`}),`=operators.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW to use`}),(0,J.jsxs)(`p`,{children:[`Implement dunders that make sense: containers get `,(0,J.jsx)(`code`,{children:`__len__`}),`+`,(0,J.jsx)(`code`,{children:`__iter__`}),`, numeric types get `,(0,J.jsx)(`code`,{children:`__add__`}),`+`,(0,J.jsx)(`code`,{children:`__eq__`}),`.`]})]})]})]}),(0,J.jsx)($,{title:`Vector class — full dunder method showcase`,code:`class Vector:
-    def __init__(self, *components):
-        self._data = tuple(components)
+class Triangle(Shape):
+    def __init__(self, a, b, c):
+        self.a, self.b, self.c = a, b, c
+
+    def area(self):  # Heron's formula
+        s = (self.a + self.b + self.c) / 2
+        return math.sqrt(s * (s-self.a) * (s-self.b) * (s-self.c))
+
+    def perimeter(self):
+        return self.a + self.b + self.c
+
+# POLYMORPHISM IN ACTION — one loop handles ALL shapes
+shapes = [Circle(5), Rectangle(3, 4), Triangle(3, 4, 5)]
+for shape in shapes:
+    print(shape.describe())  # Each calls its OWN area()!
+
+total_area = sum(s.area() for s in shapes)  # Works with ANY shape`}),(0,J.jsx)($,{title:`Payment system — real-world polymorphism`,code:`from abc import ABC, abstractmethod
+
+class Payment(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+    @abstractmethod
+    def refund(self, amount):
+        pass
+
+class CreditCard(Payment):
+    def __init__(self, card_number):
+        self.card = card_number[-4:]  # Store last 4 only
+
+    def pay(self, amount):
+        return f"Charged \${amount} to card ending in {self.card}"
+
+    def refund(self, amount):
+        return f"Refunded \${amount} to card ending in {self.card}"
+
+class PayPal(Payment):
+    def __init__(self, email):
+        self.email = email
+
+    def pay(self, amount):
+        return f"Sent \${amount} via PayPal to {self.email}"
+
+    def refund(self, amount):
+        return f"PayPal refund of \${amount} to {self.email}"
+
+class Crypto(Payment):
+    def __init__(self, wallet):
+        self.wallet = wallet[:8]
+
+    def pay(self, amount):
+        return f"Transferred \${amount} in BTC to {self.wallet}..."
+
+    def refund(self, amount):
+        return f"Crypto refund of \${amount} to {self.wallet}..."
+
+# ONE function handles ALL payment types — that's polymorphism!
+def checkout(payment_method, amount):
+    return payment_method.pay(amount)
+
+methods = [CreditCard("4111111111111234"), PayPal("alice@mail.com"), Crypto("0xABC123DEF456")]
+for method in methods:
+    print(checkout(method, 99.99))`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🎪 Abstraction — Hide the Complexity`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`You drive a car without knowing how the engine works. That's abstraction.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsxs)(`p`,{children:[`When you call `,(0,J.jsx)(`code`,{children:`list.sort()`}),`, you don't care if it uses Timsort or Mergesort. You just know: "I call sort, my list gets sorted." The HOW is hidden. You only see the WHAT.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`ABSTRACTION vs ENCAPSULATION`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`strong`,{children:`Abstraction`}),` = hiding complexity (you don't know how sort works). `,(0,J.jsx)(`strong`,{children:`Encapsulation`}),` = hiding data (you can't access the internal array directly). Abstraction is about DESIGN. Encapsulation is about ACCESS CONTROL.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW TO USE IT`}),(0,J.jsx)(`p`,{children:`Define an abstract class that says WHAT methods exist. Each implementation decides HOW. Users of your class only interact with the "what" — they never see the messy internals.`})]})]})]}),(0,J.jsx)($,{title:`DatabaseConnection — abstraction in practice`,code:`from abc import ABC, abstractmethod
+
+class DatabaseConnection(ABC):
+    """Abstract interface — defines WHAT a database can do.
+    Doesn't say HOW. That's up to each implementation."""
+
+    @abstractmethod
+    def connect(self):
+        pass
+
+    @abstractmethod
+    def query(self, sql):
+        pass
+
+    @abstractmethod
+    def close(self):
+        pass
+
+    def execute_safely(self, sql):
+        """Template method — uses abstract methods without knowing HOW they work."""
+        self.connect()
+        result = self.query(sql)
+        self.close()
+        return result
+
+class PostgresDB(DatabaseConnection):
+    def connect(self):
+        return "Connected to PostgreSQL on port 5432"
+
+    def query(self, sql):
+        return f"PostgreSQL executing: {sql}"
+
+    def close(self):
+        return "PostgreSQL connection closed"
+
+class MongoDB(DatabaseConnection):
+    def connect(self):
+        return "Connected to MongoDB cluster"
+
+    def query(self, sql):
+        return f"MongoDB translating SQL to aggregation: {sql}"
+
+    def close(self):
+        return "MongoDB connection closed"
+
+# User doesn't care which DB — same interface!
+def run_report(db: DatabaseConnection):
+    return db.execute_safely("SELECT * FROM users")
+
+run_report(PostgresDB())  # Works!
+run_report(MongoDB())     # Also works! Same interface.`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🔮 Dunder Methods — Python's Secret Hooks`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`When you write len(obj), Python actually calls obj.__len__(). These "magic methods" let YOUR objects work with built-in operations.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`IMAGINE THIS`}),(0,J.jsxs)(`p`,{children:[`Python has "hooks" everywhere. When you type `,(0,J.jsx)(`code`,{children:`a + b`}),`, Python secretly calls `,(0,J.jsx)(`code`,{children:`a.__add__(b)`}),`. When you type `,(0,J.jsx)(`code`,{children:`print(x)`}),`, it calls `,(0,J.jsx)(`code`,{children:`x.__str__()`}),`. By defining these methods in YOUR class, your objects suddenly work with +, ==, len(), print(), for loops, and more!`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`MOST IMPORTANT DUNDERS`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`code`,{children:`__init__`}),`=constructor, `,(0,J.jsx)(`code`,{children:`__repr__`}),`=debug string, `,(0,J.jsx)(`code`,{children:`__str__`}),`=print string, `,(0,J.jsx)(`code`,{children:`__eq__/__hash__`}),`=equality/dicts, `,(0,J.jsx)(`code`,{children:`__lt__`}),`=sorting, `,(0,J.jsx)(`code`,{children:`__len__`}),`=len(), `,(0,J.jsx)(`code`,{children:`__iter__`}),`=for loops, `,(0,J.jsx)(`code`,{children:`__getitem__`}),`=indexing[], `,(0,J.jsx)(`code`,{children:`__add__`}),`=+ operator, `,(0,J.jsx)(`code`,{children:`__contains__`}),`=in keyword`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`RULE OF THUMB`}),(0,J.jsxs)(`p`,{children:[`If your class represents a container → add `,(0,J.jsx)(`code`,{children:`__len__`}),` + `,(0,J.jsx)(`code`,{children:`__iter__`}),`. If it's comparable → add `,(0,J.jsx)(`code`,{children:`__eq__`}),` + `,(0,J.jsx)(`code`,{children:`__lt__`}),`. If you'll print it → add `,(0,J.jsx)(`code`,{children:`__repr__`}),`. If it goes in a set/dict → add `,(0,J.jsx)(`code`,{children:`__hash__`}),`.`]})]})]})]}),(0,J.jsx)($,{title:`Card class — complete dunder method showcase`,code:`class Card:
+    RANKS = {str(i): i for i in range(2, 11)}
+    RANKS.update({'J': 11, 'Q': 12, 'K': 13, 'A': 14})
+
+    def __init__(self, rank, suit):
+        self.rank = rank
+        self.suit = suit
+
     def __repr__(self):
-        return f"Vector({', '.join(map(str, self._data))})"
-    def __eq__(self, other):
-        return isinstance(other, Vector) and self._data == other._data
-    def __hash__(self):
-        return hash(self._data)
-    def __add__(self, other):
-        return Vector(*(a + b for a, b in zip(self._data, other._data)))
-    def __lt__(self, other):
-        return sum(x**2 for x in self._data) < sum(x**2 for x in other._data)
-    def __len__(self):
-        return len(self._data)
-    def __iter__(self):
-        return iter(self._data)
-    def __getitem__(self, index):
-        return self._data[index]
+        """For debugging: Card('A', '♠')"""
+        return f"Card('{self.rank}', '{self.suit}')"
 
-# Usage — integrates naturally with Python
-v1, v2 = Vector(1, 2, 3), Vector(4, 5, 6)
-print(v1 + v2)              # Vector(5, 7, 9)
-print(len(v1))              # 3
-print(v1[0])                # 1
-print(v1 == Vector(1,2,3))  # True
-print(sorted([v2, v1]))     # [Vector(1,2,3), Vector(4,5,6)]
-print({v1: "unit"})         # Works as dict key (hashable!)`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🎨 Design Patterns for Interviews`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Patterns That Actually Show Up`}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`KEY INSIGHT`}),(0,J.jsx)(`p`,{children:`You don't need all 23 GoF patterns. Interviews test Iterator (flatten nested lists), Singleton (global config), and Observer (event systems).`})]})]}),(0,J.jsx)($,{title:`Iterator Pattern — FlattenIterator (LC 341)`,code:`class FlattenIterator:
-    """Flattens a nested list like [1, [2, [3]], 4] lazily."""
+    def __str__(self):
+        """For printing: A♠"""
+        return f"{self.rank}{self.suit}"
+
+    def __eq__(self, other):
+        """Two cards are equal if same rank AND suit"""
+        return isinstance(other, Card) and self.rank == other.rank and self.suit == other.suit
+
+    def __hash__(self):
+        """Needed to put Cards in sets/dicts"""
+        return hash((self.rank, self.suit))
+
+    def __lt__(self, other):
+        """Compare by rank value — enables sorting!"""
+        return self.RANKS[self.rank] < self.RANKS[other.rank]
+
+    def __add__(self, other):
+        """Add two cards = sum of their rank values"""
+        return self.RANKS[self.rank] + self.RANKS[other.rank]
+
+# Now Card works with ALL Python built-ins!
+hand = [Card('A', '♠'), Card('K', '♥'), Card('3', '♦'), Card('Q', '♣')]
+print(sorted(hand))         # Sorted by rank! [3♦, Q♣, K♥, A♠]
+print(Card('A', '♠') == Card('A', '♠'))  # True
+print(Card('A', '♠') + Card('K', '♥'))   # 27 (14 + 13)
+print({Card('A', '♠'), Card('A', '♠')})  # Only one! (hashable)`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`⚙️ Class vs Instance vs Static Methods`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Three types of methods — each with a specific job.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`INSTANCE METHOD (default)`}),(0,J.jsxs)(`p`,{children:[`Has access to `,(0,J.jsx)(`code`,{children:`self`}),` — the specific object. Use it when the method needs to read/write instance data. Example: `,(0,J.jsx)(`code`,{children:`dog.bark()`}),` — it needs to know WHICH dog is barking.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`@classmethod`}),(0,J.jsxs)(`p`,{children:[`Has access to `,(0,J.jsx)(`code`,{children:`cls`}),` — the class itself. Use it for "factory methods" — alternative ways to create objects. Example: `,(0,J.jsx)(`code`,{children:`Date.from_string("2023-12-25")`}),` creates a Date without calling `,(0,J.jsx)(`code`,{children:`__init__`}),` directly.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`@staticmethod`}),(0,J.jsxs)(`p`,{children:[`Has access to NOTHING — no self, no cls. It's just a utility function that logically belongs with the class. Example: `,(0,J.jsx)(`code`,{children:`Date.is_valid(2023, 13, 45)`}),` — doesn't need an instance to check if a date is valid.`]})]})]})]}),(0,J.jsx)($,{title:`Date class — all three method types`,code:`class Date:
+    def __init__(self, year, month, day):
+        self.year = year
+        self.month = month
+        self.day = day
+
+    # INSTANCE METHOD — needs self (this specific date)
+    def __repr__(self):
+        return f"{self.year}-{self.month:02d}-{self.day:02d}"
+
+    def is_leap_year(self):
+        """Needs self.year — so it's an instance method."""
+        y = self.year
+        return y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)
+
+    # CLASS METHOD — alternative constructor (factory method)
+    @classmethod
+    def from_string(cls, date_string):
+        """Creates a Date from '2023-12-25' format.
+        Uses cls() instead of Date() — works with subclasses too!"""
+        year, month, day = map(int, date_string.split('-'))
+        return cls(year, month, day)
+
+    @classmethod
+    def today(cls):
+        """Another factory — creates today's date."""
+        import datetime
+        t = datetime.date.today()
+        return cls(t.year, t.month, t.day)
+
+    # STATIC METHOD — utility, doesn't need self or cls
+    @staticmethod
+    def is_valid(year, month, day):
+        """Pure validation — doesn't need any instance or class data."""
+        return 1 <= month <= 12 and 1 <= day <= 31 and year > 0
+
+# Usage
+d1 = Date(2023, 12, 25)           # Normal constructor
+d2 = Date.from_string("2024-01-15")  # Factory method
+d3 = Date.today()                     # Another factory
+print(Date.is_valid(2023, 13, 1))     # False — no instance needed`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🧩 Composition vs Inheritance`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`"Has-a" vs "Is-a" — the most important design decision in OOP.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`THE RULE`}),(0,J.jsx)(`p`,{children:`A Dog IS an Animal → inheritance. A Car HAS an Engine → composition. If you're unsure, prefer composition. It's more flexible and easier to change later.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHY PREFER COMPOSITION`}),(0,J.jsx)(`p`,{children:`Inheritance locks you in. If you inherit from 3 classes, changes to ANY parent can break your child. Composition lets you swap parts. Want a different engine? Just plug in a new one.`})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`HOW TO DECIDE`}),(0,J.jsx)(`p`,{children:`Ask: "Is my class a SPECIALIZED VERSION of the parent?" → inheritance. "Does my class USE another class as a tool/part?" → composition. When in doubt → composition.`})]})]})]}),(0,J.jsx)($,{title:`Car with Engine — composition example`,code:`class Engine:
+    def __init__(self, horsepower, fuel_type):
+        self.horsepower = horsepower
+        self.fuel_type = fuel_type
+        self.is_running = False
+
+    def start(self):
+        self.is_running = True
+        return f"{self.fuel_type} engine ({self.horsepower}hp) started"
+
+    def stop(self):
+        self.is_running = False
+        return "Engine stopped"
+
+class GPS:
+    def navigate(self, destination):
+        return f"Navigating to {destination}..."
+
+class Car:
+    """Car HAS an engine and HAS a GPS. Not IS-an-engine."""
+    def __init__(self, make, engine, gps=None):
+        self.make = make
+        self.engine = engine   # Composition — Car HAS an Engine
+        self.gps = gps         # Composition — Car HAS a GPS
+
+    def start(self):
+        return f"{self.make}: {self.engine.start()}"
+
+    def drive_to(self, place):
+        if not self.gps:
+            return "No GPS installed!"
+        return self.gps.navigate(place)
+
+# Swap engines easily! That's the power of composition.
+v8 = Engine(450, "Gasoline")
+electric = Engine(670, "Electric")
+
+sports_car = Car("Ferrari", v8, GPS())
+tesla = Car("Tesla", electric, GPS())
+
+print(sports_car.start())  # Ferrari: Gasoline engine (450hp) started
+print(tesla.start())       # Tesla: Electric engine (670hp) started`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`📐 SOLID Principles (Simplified)`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Five rules that keep your code from becoming spaghetti. Here are the two that matter most for interviews.`}),(0,J.jsxs)(`div`,{className:`why-what-how`,children:[(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`S — SINGLE RESPONSIBILITY`}),(0,J.jsxs)(`p`,{children:[`One class = one job. A `,(0,J.jsx)(`code`,{children:`UserAuth`}),` class handles login/logout. It does NOT also send emails, generate reports, and manage the database. If your class does 5 things, split it into 5 classes.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`O — OPEN/CLOSED`}),(0,J.jsxs)(`p`,{children:[`Open for extension, closed for modification. Instead of editing existing code when adding features, EXTEND it. Add a new `,(0,J.jsx)(`code`,{children:`PayPal`}),` class instead of adding if-else to the existing payment code.`]})]}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-how`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`L, I, D — QUICK SUMMARY`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`strong`,{children:`L`}),`iskov: child classes should work anywhere parent is expected. `,(0,J.jsx)(`strong`,{children:`I`}),`nterface Segregation: don't force classes to implement methods they don't use. `,(0,J.jsx)(`strong`,{children:`D`}),`ependency Inversion: depend on abstractions (interfaces), not concrete classes.`]})]})]})]}),(0,J.jsx)($,{title:`SOLID in practice — before and after`,code:`# BAD — violates Single Responsibility (does too many things)
+class UserManager:
+    def authenticate(self, user, password): ...
+    def send_welcome_email(self, user): ...    # Not its job!
+    def generate_report(self, user): ...       # Not its job!
+
+# GOOD — each class has ONE responsibility
+class Authenticator:
+    def authenticate(self, user, password): ...
+
+class EmailService:
+    def send_welcome_email(self, user): ...
+
+class ReportGenerator:
+    def generate_report(self, user): ...
+
+# BAD — violates Open/Closed (must modify existing code for new shapes)
+def calculate_area(shape):
+    if shape.type == "circle":
+        return 3.14 * shape.radius ** 2
+    elif shape.type == "rectangle":   # Adding square? Edit this function.
+        return shape.w * shape.h
+    # Every new shape = edit this function. Fragile!
+
+# GOOD — open for extension, closed for modification
+class Shape(ABC):
+    @abstractmethod
+    def area(self): pass
+
+class Circle(Shape):
+    def area(self): return 3.14 * self.radius ** 2
+
+# Adding a new shape? Just add a new class. NEVER touch existing code.
+class Hexagon(Shape):
+    def area(self): return 2.598 * self.side ** 2`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🎨 Design Patterns That Appear in Interviews`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`You don't need all 23 patterns. These four show up constantly.`}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHICH PATTERNS TO KNOW`}),(0,J.jsxs)(`p`,{children:[(0,J.jsx)(`strong`,{children:`Iterator`}),` — flatten nested lists, custom traversal. `,(0,J.jsx)(`strong`,{children:`Singleton`}),` — global config, connection pools. `,(0,J.jsx)(`strong`,{children:`Observer`}),` — event systems, pub/sub. `,(0,J.jsx)(`strong`,{children:`Factory`}),` — create objects without specifying exact class.`]})]})]}),(0,J.jsx)($,{title:`Iterator Pattern — flatten nested list (LC 341)`,code:`class FlattenIterator:
+    """Lazily flattens [1, [2, [3, 4]], 5] without creating a new list."""
     def __init__(self, nested_list):
+        # Stack holds items in reverse so we pop from the "front"
         self._stack = list(reversed(nested_list))
+
     def __iter__(self):
         return self
+
     def __next__(self):
         while self._stack:
             top = self._stack.pop()
             if isinstance(top, list):
+                # Put list items back on stack (reversed to maintain order)
                 self._stack.extend(reversed(top))
             else:
                 return top
         raise StopIteration
 
-it = FlattenIterator([1, [2, [3, 4]], 5])
-print(list(it))  # [1, 2, 3, 4, 5]`}),(0,J.jsx)($,{title:`Singleton and Observer patterns`,code:`# Singleton — only one instance ever exists
-class Singleton:
+# Usage — works with for loops!
+nested = [1, [2, [3, 4]], [5, 6], 7]
+print(list(FlattenIterator(nested)))  # [1, 2, 3, 4, 5, 6, 7]`}),(0,J.jsx)($,{title:`Singleton, Observer, and Factory patterns`,code:`# === SINGLETON — only one instance ever exists ===
+class Config:
     _instance = None
+
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
+            cls._instance.settings = {}
         return cls._instance
 
-s1, s2 = Singleton(), Singleton()
-print(s1 is s2)  # True — same object!
+    def set(self, key, value):
+        self.settings[key] = value
 
-# Observer — simple event system
-class EventSystem:
+c1 = Config()
+c2 = Config()
+c1.set("theme", "dark")
+print(c2.settings)  # {'theme': 'dark'} — same object!
+print(c1 is c2)     # True
+
+# === OBSERVER — event/notification system ===
+class EventBus:
     def __init__(self):
-        self._listeners = {}
-    def on(self, event, callback):
-        self._listeners.setdefault(event, []).append(callback)
-    def emit(self, event, *args):
-        for cb in self._listeners.get(event, []):
-            cb(*args)
+        self._subscribers = {}
 
-events = EventSystem()
-events.on("login", lambda user: print(f"{user} logged in"))
-events.on("login", lambda user: print(f"Log: {user} at server"))
-events.emit("login", "Alice")  # Both callbacks fire`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🎯 OOP Problems from Real Interviews`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`Classic Design Questions`}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-what`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT INTERVIEWERS LOOK FOR`}),(0,J.jsx)(`p`,{children:`Clean API design, proper encapsulation, correct time complexity, and edge case handling. LRU Cache, Min Stack, and HashMap appear constantly.`})]})]}),(0,J.jsx)($,{title:`LRU Cache — using OrderedDict (LC 146)`,code:`from collections import OrderedDict
+    def subscribe(self, event, callback):
+        self._subscribers.setdefault(event, []).append(callback)
+
+    def publish(self, event, data=None):
+        for callback in self._subscribers.get(event, []):
+            callback(data)
+
+bus = EventBus()
+bus.subscribe("user_login", lambda user: print(f"Welcome {user}!"))
+bus.subscribe("user_login", lambda user: print(f"Log: {user} signed in"))
+bus.publish("user_login", "Alice")  # Both callbacks fire!
+
+# === FACTORY — create objects without knowing exact class ===
+class NotificationFactory:
+    @staticmethod
+    def create(channel, message):
+        if channel == "email":
+            return EmailNotification(message)
+        elif channel == "sms":
+            return SMSNotification(message)
+        elif channel == "push":
+            return PushNotification(message)
+        raise ValueError(f"Unknown channel: {channel}")
+
+# Usage: caller doesn't need to know class names
+notif = NotificationFactory.create("email", "Hello!")`})]}),(0,J.jsxs)(`section`,{className:`section`,children:[(0,J.jsx)(`div`,{className:`section-title`,children:(0,J.jsx)(`h2`,{children:`🎯 Real Interview OOP Problems`})}),(0,J.jsxs)(`div`,{className:`daily-dose`,children:[(0,J.jsx)(`h3`,{children:`These three problems appear in interviews at Google, Meta, Amazon constantly.`}),(0,J.jsxs)(`div`,{className:`wwh-card wwh-why`,children:[(0,J.jsx)(`span`,{className:`wwh-label`,children:`WHAT INTERVIEWERS LOOK FOR`}),(0,J.jsx)(`p`,{children:`Clean API, proper encapsulation, correct time complexity, edge case handling, and Pythonic code (using dunders). These aren't "design" questions — they're "implement this data structure as a class" questions.`})]})]}),(0,J.jsx)($,{title:`LRU Cache — O(1) get and put (LC 146)`,code:`from collections import OrderedDict
 
 class LRUCache:
+    """Least Recently Used Cache.
+    Key insight: OrderedDict remembers insertion order AND
+    lets you move items to the end in O(1)."""
+
     def __init__(self, capacity):
         self.capacity = capacity
         self.cache = OrderedDict()
+
     def get(self, key):
-        if key not in self.cache: return -1
+        if key not in self.cache:
+            return -1
+        # Mark as recently used by moving to end
         self.cache.move_to_end(key)
         return self.cache[key]
+
     def put(self, key, value):
         if key in self.cache:
-            self.cache.move_to_end(key)
+            self.cache.move_to_end(key)  # Update = recently used
         self.cache[key] = value
         if len(self.cache) > self.capacity:
-            self.cache.popitem(last=False)  # Remove LRU
+            self.cache.popitem(last=False)  # Remove LEAST recent (front)
 
+# Walkthrough:
 cache = LRUCache(2)
-cache.put(1, 1); cache.put(2, 2)
-cache.get(1)     # 1 (marks key 1 as recent)
-cache.put(3, 3)  # Evicts key 2
-cache.get(2)     # -1 (evicted!)`}),(0,J.jsx)($,{title:`Min Stack — O(1) getMin (LC 155)`,code:`class MinStack:
-    def __init__(self):
-        self._stack = []  # stores (value, current_min)
-    def push(self, val):
-        curr_min = min(val, self._stack[-1][1]) if self._stack else val
-        self._stack.append((val, curr_min))
-    def pop(self):       self._stack.pop()
-    def top(self):       return self._stack[-1][0]
-    def getMin(self):    return self._stack[-1][1]
+cache.put(1, "A")    # cache: {1: A}
+cache.put(2, "B")    # cache: {1: A, 2: B}
+cache.get(1)         # "A" — now 1 is most recent: {2: B, 1: A}
+cache.put(3, "C")    # Evicts key 2 (least recent): {1: A, 3: C}
+cache.get(2)         # -1 (evicted!)`}),(0,J.jsx)($,{title:`Min Stack — O(1) push, pop, top, AND getMin (LC 155)`,code:`class MinStack:
+    """Trick: store (value, current_minimum) at each level.
+    When you pop, the previous minimum is still stored below!"""
 
+    def __init__(self):
+        self._stack = []  # Each entry: (value, min_at_this_level)
+
+    def push(self, val):
+        current_min = min(val, self._stack[-1][1]) if self._stack else val
+        self._stack.append((val, current_min))
+
+    def pop(self):
+        self._stack.pop()
+
+    def top(self):
+        return self._stack[-1][0]
+
+    def getMin(self):
+        return self._stack[-1][1]
+
+# Walkthrough:
 ms = MinStack()
-ms.push(3); ms.push(1); ms.push(2)
-ms.getMin()  # 1
-ms.pop(); ms.getMin()  # 1 (still correct!)`}),(0,J.jsx)($,{title:`Design HashMap from scratch (LC 706)`,code:`class MyHashMap:
+ms.push(5)   # stack: [(5, 5)]
+ms.push(3)   # stack: [(5, 5), (3, 3)]  — min is now 3
+ms.push(7)   # stack: [(5, 5), (3, 3), (7, 3)]  — min still 3
+ms.getMin()  # 3
+ms.pop()     # removes 7, stack: [(5, 5), (3, 3)]
+ms.getMin()  # 3 (still correct!)
+ms.pop()     # removes 3, stack: [(5, 5)]
+ms.getMin()  # 5 (previous min restored automatically!)`}),(0,J.jsx)($,{title:`Design HashMap from scratch (LC 706)`,code:`class MyHashMap:
+    """Hash map using separate chaining (list of buckets).
+    Each bucket is a list of (key, value) pairs."""
+
     def __init__(self, size=1000):
         self.size = size
         self.buckets = [[] for _ in range(size)]
+
     def _hash(self, key):
+        """Maps any key to a bucket index."""
         return key % self.size
+
     def put(self, key, value):
         bucket = self.buckets[self._hash(key)]
         for i, (k, v) in enumerate(bucket):
             if k == key:
-                bucket[i] = (key, value); return
-        bucket.append((key, value))
+                bucket[i] = (key, value)  # Update existing
+                return
+        bucket.append((key, value))  # New key
+
     def get(self, key):
-        for k, v in self.buckets[self._hash(key)]:
-            if k == key: return v
-        return -1
+        bucket = self.buckets[self._hash(key)]
+        for k, v in bucket:
+            if k == key:
+                return v
+        return -1  # Not found
+
     def remove(self, key):
         bucket = self.buckets[self._hash(key)]
         for i, (k, v) in enumerate(bucket):
-            if k == key: bucket.pop(i); return
+            if k == key:
+                bucket.pop(i)
+                return
 
+# Usage
 hm = MyHashMap()
-hm.put(1, 10); hm.put(2, 20)
-hm.get(1)     # 10
-hm.remove(1); hm.get(1)  # -1`})]}),(0,J.jsx)(`style`,{children:`
+hm.put(1, "hello")
+hm.put(1001, "world")  # Same bucket as 1! (1001 % 1000 == 1)
+print(hm.get(1))       # "hello"
+print(hm.get(1001))    # "world" — separate chaining handles collision
+hm.remove(1)
+print(hm.get(1))       # -1`})]}),(0,J.jsx)(`style`,{children:`
         .daily-dose { margin-bottom: 1.5rem; }
         .daily-dose h3 { margin-bottom: 0.8rem; }
         .why-what-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.7rem; }
