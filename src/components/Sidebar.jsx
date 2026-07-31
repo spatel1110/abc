@@ -2,29 +2,30 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const topics = [
-  { path: '/lists', name: 'Lists', icon: '[ ]', count: 55 },
-  { path: '/strings', name: 'Strings', icon: '" "', count: 47 },
-  { path: '/dictionaries', name: 'Dictionaries', icon: '{ }', count: 28 },
-  { path: '/sorting-searching', name: 'Sorting & Searching', icon: '↕↔', count: 29 },
-  { path: '/stacks-queues', name: 'Stacks & Queues', icon: '▐▌', count: 29 },
+  { path: '/lists', name: 'Lists', icon: '⟦⟧', count: 55, color: '#60a5fa' },
+  { path: '/strings', name: 'Strings', icon: '❝❞', count: 47, color: '#34d399' },
+  { path: '/dictionaries', name: 'Dictionaries', icon: '⟨⟩', count: 28, color: '#22d3ee' },
+  { path: '/sorting-searching', name: 'Sorting & Searching', icon: '⇅⇄', count: 29, color: '#fbbf24' },
+  { path: '/stacks-queues', name: 'Stacks & Queues', icon: '⊏⊐', count: 29, color: '#a78bfa' },
 ];
 
 export default function Sidebar() {
   return (
     <motion.aside
       className="sidebar"
-      initial={{ x: -260 }}
+      initial={{ x: -270 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 200, damping: 30 }}
     >
       <NavLink to="/" className="sidebar-logo">
-        <span className="logo-icon">&#60;/&#62;</span>
-        <span className="logo-text">DSA Python</span>
-        <span className="logo-sub">Interview Prep</span>
+        <div className="logo-glow"></div>
+        <span className="logo-icon">&lt;DSA/&gt;</span>
+        <span className="logo-text">Python</span>
+        <span className="logo-sub">INTERVIEW PREP</span>
       </NavLink>
 
       <nav className="sidebar-nav">
-        <div className="nav-section-label">Topics</div>
+        <div className="nav-section-label">TOPICS</div>
         {topics.map((topic) => (
           <NavLink
             key={topic.path}
@@ -33,7 +34,7 @@ export default function Sidebar() {
               `nav-item ${isActive ? 'nav-item-active' : ''}`
             }
           >
-            <span className="nav-icon">{topic.icon}</span>
+            <span className="nav-icon" style={{ color: topic.color }}>{topic.icon}</span>
             <span className="nav-name">{topic.name}</span>
             <span className="nav-count">{topic.count}</span>
           </NavLink>
@@ -41,8 +42,16 @@ export default function Sidebar() {
       </nav>
 
       <div className="sidebar-footer">
-        <div className="footer-badge">188 Problems</div>
-        <div className="footer-text">5 Core Topics</div>
+        <div className="footer-stats">
+          <div className="footer-stat">
+            <span className="footer-num">188</span>
+            <span className="footer-label">Problems</span>
+          </div>
+          <div className="footer-stat">
+            <span className="footer-num">5</span>
+            <span className="footer-label">Topics</span>
+          </div>
+        </div>
       </div>
 
       <style>{`
@@ -64,77 +73,96 @@ export default function Sidebar() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 1.5rem 1rem;
+          padding: 2rem 1rem 1.5rem;
           border-bottom: 1px solid var(--border-color);
           text-decoration: none;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .logo-glow {
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 60%);
+          animation: float 6s ease-in-out infinite;
         }
 
         .logo-icon {
           font-family: var(--font-mono);
-          font-size: 1.5rem;
-          color: var(--accent-blue);
+          font-size: 1.6rem;
           font-weight: 700;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          position: relative;
         }
 
         .logo-text {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 700;
           color: var(--text-primary);
-          margin-top: 0.3rem;
+          margin-top: 0.2rem;
+          position: relative;
         }
 
         .logo-sub {
-          font-size: 0.75rem;
+          font-size: 0.65rem;
           color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.2em;
+          margin-top: 0.2rem;
+          position: relative;
         }
 
         .sidebar-nav {
           flex: 1;
-          padding: 1rem 0.8rem;
+          padding: 1.2rem 0.8rem;
         }
 
         .nav-section-label {
-          font-size: 0.7rem;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
+          font-size: 0.65rem;
+          letter-spacing: 0.15em;
           color: var(--text-muted);
           padding: 0.5rem 0.8rem;
-          margin-bottom: 0.3rem;
+          margin-bottom: 0.5rem;
+          font-weight: 700;
         }
 
         .nav-item {
           display: flex;
           align-items: center;
           gap: 0.7rem;
-          padding: 0.7rem 0.8rem;
+          padding: 0.75rem 0.9rem;
           border-radius: var(--radius);
           color: var(--text-secondary);
           text-decoration: none;
-          font-size: 0.9rem;
+          font-size: 0.88rem;
           transition: var(--transition);
-          margin-bottom: 0.2rem;
+          margin-bottom: 0.3rem;
+          border: 1px solid transparent;
         }
 
         .nav-item:hover {
-          background: var(--bg-tertiary);
+          background: rgba(124,58,237,0.06);
           color: var(--text-primary);
           text-decoration: none;
+          border-color: rgba(124,58,237,0.15);
         }
 
         .nav-item-active {
-          background: rgba(88, 166, 255, 0.1);
-          color: var(--accent-blue);
-          border: 1px solid rgba(88, 166, 255, 0.2);
+          background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(6,182,212,0.06) 100%);
+          color: var(--accent-purple);
+          border-color: rgba(124,58,237,0.3);
+          box-shadow: 0 0 15px rgba(124,58,237,0.1);
         }
 
         .nav-icon {
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
+          font-size: 1rem;
           width: 28px;
           text-align: center;
-          opacity: 0.7;
         }
 
         .nav-name {
@@ -143,35 +171,53 @@ export default function Sidebar() {
         }
 
         .nav-count {
-          font-size: 0.7rem;
+          font-family: var(--font-mono);
+          font-size: 0.68rem;
           background: var(--bg-tertiary);
-          padding: 0.15rem 0.5rem;
-          border-radius: 10px;
+          padding: 0.2rem 0.5rem;
+          border-radius: 12px;
           color: var(--text-muted);
+          border: 1px solid var(--border-color);
         }
 
         .nav-item-active .nav-count {
-          background: rgba(88, 166, 255, 0.15);
-          color: var(--accent-blue);
+          background: rgba(124,58,237,0.15);
+          color: var(--accent-purple);
+          border-color: rgba(124,58,237,0.3);
         }
 
         .sidebar-footer {
-          padding: 1rem;
+          padding: 1.2rem;
           border-top: 1px solid var(--border-color);
-          text-align: center;
         }
 
-        .footer-badge {
+        .footer-stats {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .footer-stat {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.1rem;
+        }
+
+        .footer-num {
           font-family: var(--font-mono);
-          font-size: 0.8rem;
-          color: var(--accent-green);
-          font-weight: 600;
+          font-size: 1.2rem;
+          font-weight: 700;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
-        .footer-text {
-          font-size: 0.7rem;
+        .footer-label {
+          font-size: 0.65rem;
           color: var(--text-muted);
-          margin-top: 0.2rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
         }
 
         @media (max-width: 768px) {

@@ -58,8 +58,10 @@ export default function HomePage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2 }}
         >
+          <div className="hero-orb hero-orb-1"></div>
+          <div className="hero-orb hero-orb-2"></div>
           <h1 className="hero-title">
-            <span className="hero-accent">&lt;/&gt;</span> DSA in Python
+            DSA in Python
           </h1>
           <p className="hero-subtitle">
             Master Data Structures & Algorithms for coding interviews — with step-by-step visualizations, clean Python code, and 188 curated LeetCode problems.
@@ -142,30 +144,67 @@ export default function HomePage() {
       <style>{`
         .hero {
           text-align: center;
-          padding: 3rem 1rem;
-          margin-bottom: 2rem;
-          background: linear-gradient(135deg, rgba(88,166,255,0.05) 0%, rgba(188,140,255,0.05) 100%);
+          padding: 4rem 2rem;
+          margin-bottom: 2.5rem;
+          background: var(--bg-card);
           border: 1px solid var(--border-color);
           border-radius: var(--radius-lg);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--gradient-primary);
+        }
+
+        .hero-orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(60px);
+          animation: float 8s ease-in-out infinite;
+        }
+
+        .hero-orb-1 {
+          top: 10%;
+          left: 10%;
+          width: 200px;
+          height: 200px;
+          background: rgba(124,58,237,0.12);
+        }
+
+        .hero-orb-2 {
+          bottom: 10%;
+          right: 10%;
+          width: 250px;
+          height: 250px;
+          background: rgba(6,182,212,0.08);
+          animation-delay: -4s;
         }
 
         .hero-title {
-          font-size: 2.8rem;
-          font-weight: 700;
+          font-size: 3.2rem;
+          font-weight: 800;
           margin-bottom: 1rem;
-        }
-
-        .hero-accent {
-          font-family: var(--font-mono);
-          color: var(--accent-blue);
+          position: relative;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .hero-subtitle {
           font-size: 1.15rem;
           color: var(--text-secondary);
-          max-width: 650px;
+          max-width: 620px;
           margin: 0 auto;
           line-height: 1.8;
+          position: relative;
         }
 
         .stats-row {
@@ -177,19 +216,29 @@ export default function HomePage() {
         .stat-card {
           background: var(--bg-card);
           border: 1px solid var(--border-color);
-          border-radius: var(--radius);
-          padding: 1.2rem;
+          border-radius: var(--radius-lg);
+          padding: 1.5rem;
           text-align: center;
           display: flex;
           flex-direction: column;
           gap: 0.3rem;
+          transition: var(--transition);
+        }
+
+        .stat-card:hover {
+          border-color: rgba(124,58,237,0.3);
+          box-shadow: var(--shadow-glow);
+          transform: translateY(-3px);
         }
 
         .stat-number {
           font-family: var(--font-mono);
-          font-size: 1.8rem;
-          font-weight: 700;
-          color: var(--accent-blue);
+          font-size: 2rem;
+          font-weight: 800;
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
         }
 
         .stat-label {
@@ -209,19 +258,38 @@ export default function HomePage() {
           display: flex;
           align-items: center;
           gap: 1.5rem;
-          padding: 1.5rem;
+          padding: 1.5rem 1.8rem;
           background: var(--bg-card);
           border: 1px solid var(--border-color);
           border-radius: var(--radius-lg);
           text-decoration: none;
           transition: var(--transition);
           border-left: 3px solid var(--card-accent);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .topic-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, rgba(124,58,237,0.03) 0%, transparent 50%);
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .topic-card:hover::before {
+          opacity: 1;
         }
 
         .topic-card:hover {
           border-color: var(--card-accent);
-          transform: translateX(4px);
+          transform: translateX(6px);
           text-decoration: none;
+          box-shadow: 0 0 25px rgba(124,58,237,0.1);
         }
 
         .topic-icon {

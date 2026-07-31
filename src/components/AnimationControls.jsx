@@ -15,6 +15,8 @@ export default function AnimationControls({
   onCustomInputChange,
   onCustomInputSubmit,
   inputPlaceholder = 'Enter values (comma-separated)',
+  autoPlay = false,
+  onAutoPlayToggle,
 }) {
   return (
     <div className="animation-controls">
@@ -73,6 +75,12 @@ export default function AnimationControls({
         <div className="step-indicator">
           Step {currentStep + 1} / {totalSteps}
         </div>
+        {onAutoPlayToggle && (
+          <label className="autoplay-toggle">
+            <input type="checkbox" checked={autoPlay} onChange={onAutoPlayToggle} />
+            <span>Auto-play</span>
+          </label>
+        )}
       </div>
 
       {onCustomInputChange && (
@@ -146,16 +154,17 @@ export default function AnimationControls({
           width: 44px;
           height: 44px;
           border-radius: 50%;
-          background: var(--accent-blue);
-          border-color: var(--accent-blue);
+          background: var(--gradient-primary);
+          border-color: var(--accent-purple);
           color: white;
           font-size: 1rem;
+          box-shadow: 0 0 20px rgba(124,58,237,0.3);
         }
 
         .ctrl-btn-play:hover {
-          background: #4a9aee;
+          box-shadow: 0 0 30px rgba(124,58,237,0.5);
           color: white !important;
-          border-color: #4a9aee !important;
+          border-color: var(--accent-purple) !important;
         }
 
         .ctrl-btn-submit {
@@ -196,6 +205,19 @@ export default function AnimationControls({
           font-size: 0.8rem;
           color: var(--text-muted);
           margin-left: auto;
+        }
+
+        .autoplay-toggle {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-size: 0.75rem;
+          color: var(--text-secondary);
+          cursor: pointer;
+        }
+
+        .autoplay-toggle input {
+          accent-color: var(--accent-purple);
         }
 
         .custom-input-row {
